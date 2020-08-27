@@ -5,7 +5,6 @@
         {
         }
 
-
         public function openDBConnexion()
         {
             $tempDbConnexion = null;
@@ -47,6 +46,20 @@
         public function getSnows()
         {
             $sql = "SELECT * FROM snows order by idSnow";
+            $result = $this->executeQuerySelect($sql);
+            return $result;
+        }
+
+        public function updateSnow()
+        {
+            // $sql = "DELETE FROM snows where idSnow=$_GET[idSnow]";
+            // $result = $this->executeQuerySelect($sql);
+            // return $result;
+        }
+
+        public function deleteSnow()
+        {
+            $sql = "DELETE FROM snows where idSnow=$_GET[idSnow]";
             $result = $this->executeQuerySelect($sql);
             return $result;
         }
