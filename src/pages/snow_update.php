@@ -1,7 +1,9 @@
-﻿<?php
+﻿<?php $data = dirname(__DIR__) . DIRECTORY_SEPARATOR . "model" . DIRECTORY_SEPARATOR . "snow.php";
+require_once($data);
 $title = "Update Snowboard";
-require_once("modelcsv.php");
-$snows = getSnows();
+
+$db = new DB();
+$snows = $db->getSnows();
 foreach ($snows as $item) {
     if ($_GET['idSnow'] == $item['idSnow']) {
         $index = array_search($item, $snows);

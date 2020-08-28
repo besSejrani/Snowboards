@@ -1,6 +1,5 @@
-<?php $data = dirname(__DIR__) . DIRECTORY_SEPARATOR . "model" . DIRECTORY_SEPARATOR . "snow.php";
-require_once($data);
-
+<?php
+require_once(dirname(__DIR__) . DIRECTORY_SEPARATOR . "class" . DIRECTORY_SEPARATOR . "Snow.php");
 $title = "Products";
 ?>
 
@@ -17,9 +16,9 @@ $title = "Products";
     </div>
 
     <?php
-    $db = new DB();
+
+    $db = new Snow();
     $snows = $db->getSnows();
-    $ligne = 1;
 
     echo <<<EOT
 <table class="table table-dark container mb-5">
