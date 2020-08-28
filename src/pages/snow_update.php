@@ -1,10 +1,11 @@
 ﻿<?php
+$title = "Update Snowboard";
 require_once("modelcsv.php");
 $snows = getSnows();
 foreach ($snows as $item) {
-  if ($_GET['idSnow'] == $item['idSnow']) {
-    $index = array_search($item, $snows);
-  }
+    if ($_GET['idSnow'] == $item['idSnow']) {
+        $index = array_search($item, $snows);
+    }
 }
 $idsnow = $snows[$index]['idSnow'];
 $marque = $snows[$index]['Marque'];

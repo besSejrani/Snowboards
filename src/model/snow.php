@@ -13,8 +13,8 @@
             $port = 3306;
             $charset = 'utf8';
             $dbName = 'snows';
-            $userName = 'bes';
-            $userPwd = 'Golan-1815';
+            $userName = 'root';
+            $userPwd = '123456789';
             // $dsn = "mysql:host=" . $hostname . ';dbname=' . $dbName . ';port=' . $port . ';charset=' . $charset;
             //$tempDbConnexion = new PDO($dsn, $userName, $userPwd);
 

@@ -1,5 +1,5 @@
-<?php $title = "Error 404" ?>
+<?php $title = "Admin" ?>
 
 <div class="vh-100 d-flex justify-content-center align-items-center">
-    <h1>Sorry, 404 Error</h1>
+    <h1>Admin</h1>
 </div>

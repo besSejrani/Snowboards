@@ -1,8 +1,11 @@
 <?php $data = dirname(__DIR__) . DIRECTORY_SEPARATOR . "model" . DIRECTORY_SEPARATOR . "snow.php";
 require_once($data);
+
+$title = "Products";
 ?>
 
-<div class="d-flex flex-column justify-content-center align-items-center  vh-100">
+
+<div class="d-flex flex-column justify-content-center align-items-center vh-100">
 
     <div class="container px-0">
         <div class="d-flex justify-content-between align-items-center my-4 ">

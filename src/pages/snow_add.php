@@ -1,4 +1,6 @@
-﻿<div class="d-flex justify-content-center align-items-center vh-100">
+﻿<?php $title = "Add Snowboard" ?>
+
+<div class="d-flex justify-content-center align-items-center vh-100">
     <form class="form container " method=" POST" action="snow_add_data.php">
         <div class=" form-group">
             <label for="code">Snow Code</label>
