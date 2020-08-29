@@ -19,7 +19,7 @@ stages {
             }
         }
         
-        stage('Testing') {
+        stage('Testing2') {
             steps {
                 sh label: '', script: 'echo "Testing hello world"'
             }
