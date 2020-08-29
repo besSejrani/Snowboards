@@ -40,6 +40,10 @@ pipeline {
     }
 
     stage('foo') {
+
+      environment{
+        DOCKER_CERT_PATH = credentials('id-for-a-docker-cred')
+      }
       steps {
         sh "docker version" // DOCKER_CERT_PATH is automatically picked up by the Docker client
       }
@@ -48,6 +52,6 @@ pipeline {
   }
   environment {
     test = 'hello from env'
-    DOCKER_CERT_PATH = credentials('id-for-a-docker-cred')
+    
   }
 }
