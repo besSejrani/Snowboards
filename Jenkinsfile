@@ -15,13 +15,13 @@ stages {
 
         stage('Building') {
             steps {
-                sh label: '', script: 'mvn compile'
+                sh label: '', script: 'echo "Building hello world"'
             }
         }
         
         stage('Testing') {
             steps {
-                sh label: '', script: 'mvn verify'
+                sh label: '', script: 'echo "Testing hello world"'
             }
         }
     }
