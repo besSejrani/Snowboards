@@ -47,7 +47,7 @@ pipeline {
   
   }
   environment {
-    test = 'hello from env',
+    test = 'hello from env'
     DOCKER_CERT_PATH = credentials('id-for-a-docker-cred')
   }
 }
