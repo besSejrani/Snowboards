@@ -21,9 +21,9 @@ class Snow
 
     public function deleteSnow()
     {
-        $sql = "DELETE FROM snows where idSnow=$_GET[idSnow]";
-        $db = new DB();
-        $result = $db->executeQuerySelect($sql);
-        return $result;
+        // $sql = "DELETE FROM snows where idSnow=$_GET[idSnow]";
+        // $db = new DB();
+        // $result = $db->executeQuerySelect($sql);
+        // return $result;
     }
 }

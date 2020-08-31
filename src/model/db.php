@@ -1,4 +1,11 @@
- <?php class DB
+ <?php
+
+    require_once(dirname(__DIR__, 2) . DIRECTORY_SEPARATOR . "vendor" . DIRECTORY_SEPARATOR . "autoload.php");
+
+    $dotenv = Dotenv\Dotenv::createImmutable("./../");
+    $dotenv->load();
+
+    class DB
     {
 
         public function openDBConnexion()
@@ -9,8 +16,8 @@
             $port = 3306;
             $charset = 'utf8';
             $dbName = 'snows';
-            $userName = 'bes';
-            $userPwd = 'Golan-1815';
+            $userName = $_ENV['USER_NAMEE'];
+            $userPwd = $_ENV['USER_PASSWORD'];
             // $dsn = "mysql:host=" . $hostname . ';dbname=' . $dbName . ';port=' . $port . ';charset=' . $charset;
             //$tempDbConnexion = new PDO($dsn, $userName, $userPwd);
 
