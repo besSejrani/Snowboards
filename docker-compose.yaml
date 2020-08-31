@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  jenkins:
+    #image: jenkins/jenkins:lts
+    image: jenkinsmasterwithplugin:latest
+    environment:
+      - JAVA_OPTS="-Djenkins.install.runSetupWizard=false"
+      - JENKINS_OPTS=--argumentsRealm.roles.user=admin --argumentsRealm.passwd.admin=admin --argumentsRealm.roles.admin=admin
+    #volumes:
+    #  - ./jenkins_home:/var/jenkins_home
+    ports:
+      - "9100:8080"
+    build:
+      context: .
