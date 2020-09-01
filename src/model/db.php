@@ -1,40 +1,44 @@
  <?php
 
     require_once(dirname(__DIR__, 2) . DIRECTORY_SEPARATOR . "vendor" . DIRECTORY_SEPARATOR . "autoload.php");
-
     $dotenv = Dotenv\Dotenv::createImmutable("./../");
     $dotenv->load();
 
     class DB
     {
+        private static $connection = null;
 
-        public function openDBConnexion()
+
+        /**
+         * @return [type]
+         */
+        public function connect()
         {
-            $tempDbConnexion = null;
-            $sqlDriver = 'mysql';
-            $hostname = '127.0.0.1';
-            $port = 3306;
-            $charset = 'utf8';
-            $dbName = 'snows';
-            $userName = $_ENV['USER_NAMEE'];
-            $userPwd = $_ENV['USER_PASSWORD'];
-            // $dsn = "mysql:host=" . $hostname . ';dbname=' . $dbName . ';port=' . $port . ';charset=' . $charset;
-            //$tempDbConnexion = new PDO($dsn, $userName, $userPwd);
+            if (self::$connection == null) {
+                try {
+                    $port = $_ENV['PORT'];
+                    $hostName = $_ENV['HOST_NAME'];
+                    $databaseName = $_ENV['DATABASE_NAME'];
+                    $userName = $_ENV['USER_NAME'];
+                    $userPassword = $_ENV['USER_PASSWORD'];
 
-
-            try {
-                $dsn = new PDO('mysql:host=127.0.0.1;dbname=snows', $userName, $userPwd);
-                return $dsn;
-            } catch (PDOException $exception) {
-                echo 'Connection failed: ' . $exception->getMessage();
+                    return new PDO('mysql:host=' . $hostName . ';dbname=' . $databaseName . ';port=' . $port, $userName, $userPassword);
+                } catch (PDOException $exception) {
+                    echo 'Connection failed: ' . $exception->getMessage();
+                }
             }
-            return $tempDbConnexion;
+            return self::$connection;
         }
 
+        /**
+         * @param mixed $query
+         * 
+         * @return [type]
+         */
         public function executeQuerySelect($query)
         {
             $queryResult = null;
-            $dbConnexion = $this->openDBConnexion();
+            $dbConnexion = $this->connect();
 
             if ($dbConnexion != null) {
                 $statement = $dbConnexion->prepare($query);
@@ -44,6 +48,14 @@
 
             $dbConnexion = null;
             return $queryResult;
+        }
+
+        /**
+         * @return [type]
+         */
+        public static function disconnect()
+        {
+            self::$connection = null;
         }
     }
     ?>

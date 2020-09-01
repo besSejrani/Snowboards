@@ -15,6 +15,11 @@ switch ($uri) {
         require_once(dirname(__DIR__) . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARATOR . "pages" . DIRECTORY_SEPARATOR . "snow_add.php");
         $content = ob_get_clean();
         break;
+    case "/snow_add_data":
+        ob_start();
+        require_once(dirname(__DIR__) . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARATOR . "controller" . DIRECTORY_SEPARATOR . "snow_add_data.php");
+        $content = ob_get_clean();
+        break;
     case "/snow_delete":
         ob_start();
         require_once(dirname(__DIR__) . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARATOR . "pages" . DIRECTORY_SEPARATOR . "snow_delete.php");

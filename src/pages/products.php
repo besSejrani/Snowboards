@@ -1,5 +1,5 @@
 <?php
-
+require_once(dirname(__DIR__, 2) . DIRECTORY_SEPARATOR . "vendor" . DIRECTORY_SEPARATOR . "autoload.php");
 require_once(dirname(__DIR__) . DIRECTORY_SEPARATOR . "class" . DIRECTORY_SEPARATOR . "Snow.php");
 $title = "Products";
 ?>
@@ -10,7 +10,7 @@ $title = "Products";
     <div class="container px-0">
         <div class="d-flex justify-content-between align-items-center my-4 ">
             <h1>Products</h1>
-            <a href="snow_add">
+            <a href="/snow_add">
                 <button type="button" class="btn btn-primary">Add Snow</button>
             </a>
         </div>
@@ -20,8 +20,6 @@ $title = "Products";
 
     $db = new Snow();
     $snows = $db->getSnows();
-
-
 
     echo <<<EOT
 <table class="table table-dark container mb-5">
@@ -58,6 +56,7 @@ EOT;
 </table>   
 EOT;
 
+    DB::disconnect()
     ?>
 
     <div class="d-flex align-items-center justify-content-center mt-5">
