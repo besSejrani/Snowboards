@@ -1,7 +1,7 @@
 <?php
+$title = "Products";
 require_once(dirname(__DIR__, 2) . DIRECTORY_SEPARATOR . "vendor" . DIRECTORY_SEPARATOR . "autoload.php");
 require_once(dirname(__DIR__) . DIRECTORY_SEPARATOR . "class" . DIRECTORY_SEPARATOR . "Snow.php");
-$title = "Products";
 ?>
 
 
@@ -46,8 +46,8 @@ EOT;
     <td>$snow[Boots]</td>
     <td>$snow[Type]</td>
     <td>$snow[Disponibilite]</td>
-    <td><a href=snow_delete.php?idSnow="$snow[idSnow]">Détruire</a></td>
-    <td><a href=snow_update.php?idSnow="$snow[idSnow]">Modifier</a></td>
+    <td><a href=snow_delete.php?idSnow=$snow[idSnow]>Détruire</a></td>
+    <td><a href=snow_update.php?idSnow=$snow[idSnow]>Modifier</a></td>
     </tr>
     
     EOT;

@@ -29,7 +29,7 @@
 
 <body>
 
-
+    <?= $content ?>
 
     <footer>
     </footer>

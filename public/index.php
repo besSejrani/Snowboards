@@ -7,12 +7,13 @@ require_once(dirname(__DIR__) . DIRECTORY_SEPARATOR . "vendor" . DIRECTORY_SEPAR
 $router = new AltoRouter();
 //$router->setBasePath('/public');
 
-// $content = null;
+$content = null;
 
 $router->map(
     'GET',
     '/products',
     function () {
+        ob_start();
         require __DIR__ . "/../src/pages/products.php";
     },
     "products"
@@ -59,7 +60,7 @@ $router->map(
 );
 $router->map(
     'GET',
-    '/login',
+    '/register',
     function () {
         require  __DIR__ . "/../src/pages/register.php";
     },
@@ -67,7 +68,7 @@ $router->map(
 );
 $router->map(
     'GET',
-    '/login',
+    '/admin',
     function () {
         require  __DIR__ . "/../src/pages/admin.php";
     },
@@ -79,11 +80,12 @@ $match = $router->match();
 // dump($match);
 // dump($match['target']);
 if (is_array($match) && is_callable($match['target'])) {
+    ob_start();
     call_user_func_array($match['target'], $match['params']);
+    $content = ob_get_clean();
+    require(dirname(__DIR__) . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARATOR . "layout" . DIRECTORY_SEPARATOR . "layout.php");
 } else {
-    // no route was matched
-    //require_once(dirname(__DIR__) . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARATOR . "pages" . DIRECTORY_SEPARATOR . "404.php");
+    // No route was matched
+    require(dirname(__DIR__) . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARATOR . "layout" . DIRECTORY_SEPARATOR . "layout.php");
+    require_once(dirname(__DIR__) . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARATOR . "pages" . DIRECTORY_SEPARATOR . "404.php");
 }
-
-
-require(dirname(__DIR__) . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARATOR . "layout" . DIRECTORY_SEPARATOR . "layout.php");
