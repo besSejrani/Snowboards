@@ -23,14 +23,13 @@
             <a class="nav-link active p-2" href="/">Home <span class="sr-only"></span></a>
             <a class="nav-link active p-2" href="/products">Products<span class="sr-only"></span></a>
             <a class="nav-link active p-2" href="/login">Login<span class="sr-only"></span></a>
-            <a class="nav-link active p-2" href="/register">Register<span class="sr-only"></span></a>
         </div>
     </div>
 </nav>
 
 <body>
 
-    <?= $content ?>
+
 
     <footer>
     </footer>

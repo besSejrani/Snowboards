@@ -21,6 +21,7 @@ $title = "Products";
     $db = new Snow();
     $snows = $db->getSnows();
 
+
     echo <<<EOT
 <table class="table table-dark container mb-5">
 <thead>
@@ -38,6 +39,7 @@ EOT;
 
     foreach ($snows as $snow) {
         echo <<<EOT
+       
     <tr>
     <td>$snow[idSnow]</td>
     <td>$snow[Marque]</td>

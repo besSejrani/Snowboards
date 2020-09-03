@@ -1,20 +1,14 @@
-﻿<?php $data = dirname(__DIR__) . DIRECTORY_SEPARATOR . "class" . DIRECTORY_SEPARATOR . "Snow.php";
-require_once($data);
+﻿<?php require_once(dirname(__DIR__) . DIRECTORY_SEPARATOR . "class" . DIRECTORY_SEPARATOR . "Snow.php");
 $title = "Update Snowboard";
 
-// $db = new Snow();
-// $snows = $db->getSnows();
-// foreach ($snows as $item) {
-//     if ($_GET['idSnow'] == $item['idSnow']) {
-//         $index = array_search($item, $snows);
-//     }
-// }
-// $idsnow = $snows[$index]['idSnow'];
-// $marque = $snows[$index]['Marque'];
-// $boots = $snows[$index]['Boots'];
-// $type = $snows[$index]['Type'];
-// $disponibilite = $snows[$index]['disponibilite'];
-// 
+$db = new Snow();
+$snow = $db->getASnow($_GET['snowId']);
+$idsnow = $snow[$index]['idSnow'];
+$marque = $snow[$index]['Marque'];
+$boots = $snow[$index]['Boots'];
+$type = $snow[$index]['Type'];
+$disponibilite = $snow[$index]['Disponibilite'];
+
 ?>
 
 

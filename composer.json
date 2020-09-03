@@ -1,6 +1,7 @@
 {
     "require": {
         "vlucas/phpdotenv": "^5.1",
-        "symfony/var-dumper": "^5.1"
+        "symfony/var-dumper": "^5.1",
+        "filp/whoops": "^2.7"
     }
 }
