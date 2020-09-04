@@ -79,6 +79,7 @@ $router->map(
 $match = $router->match();
 // dump($match);
 // dump($match['target']);
+// test
 if (is_array($match) && is_callable($match['target'])) {
     ob_start();
     call_user_func_array($match['target'], $match['params']);
