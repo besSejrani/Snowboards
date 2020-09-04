@@ -21,6 +21,7 @@
         </form>
         <div class="d-flex flex-row">
             <a class="nav-link active p-2" href="/">Home <span class="sr-only"></span></a>
+            <a class="nav-link active p-2" href="/events">Events <span class="sr-only"></span></a>
             <a class="nav-link active p-2" href="/products">Products<span class="sr-only"></span></a>
             <a class="nav-link active p-2" href="/login">Login<span class="sr-only"></span></a>
         </div>

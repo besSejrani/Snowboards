@@ -11,9 +11,16 @@ $content = null;
 
 $router->map(
     'GET',
+    '/',
+    function () {
+        require __DIR__ . "/../src/pages/home.php";
+    },
+    "home"
+);
+$router->map(
+    'GET',
     '/products',
     function () {
-        ob_start();
         require __DIR__ . "/../src/pages/products.php";
     },
     "products"
