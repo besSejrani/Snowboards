@@ -7,7 +7,7 @@ services:
       - JAVA_OPTS=-Djenkins.install.runSetupWizard=false
       - JENKINS_OPTS=--argumentsRealm.roles.user=admin --argumentsRealm.passwd.admin=admin --argumentsRealm.roles.admin=admin
     volumes:
-      - /home/bes/docker/Snowboards/jenkins:/var/jenkins_home
+      - ~/docker/Snowboards/jenkins:/var/jenkins_home
     ports:
       - "9100:8080"
     build:
@@ -18,7 +18,7 @@ services:
     environment:
       - TEST=bal
     volumes:
-      - /home/bes/docker/Snowboards/grafana:/var/lib/grafana
+      - ~/docker/Snowboards/grafana:/var/lib/grafana
     ports:
       - "3000:3000"
     user: root
