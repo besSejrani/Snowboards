@@ -5,6 +5,7 @@ require_once(dirname(__DIR__) . DIRECTORY_SEPARATOR . "model" . DIRECTORY_SEPARA
 class Snow
 {
 
+
     public function getASnow(string $id)
     {
         $sql = "SELECT * FROM snows WHERE idSnow='$id'";

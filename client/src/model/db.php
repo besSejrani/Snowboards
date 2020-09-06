@@ -16,11 +16,11 @@
         {
             if (self::$connection == null) {
                 try {
-                    $port = $_ENV['PORT'];
-                    $hostName = $_ENV['HOST_NAME'];
-                    $databaseName = $_ENV['DATABASE_NAME'];
-                    $userName = $_ENV['USER_NAME'];
-                    $userPassword = $_ENV['USER_PASSWORD'];
+                    $port = $_ENV['MYSQL_PORT'];
+                    $hostName = $_ENV['MYSQL_HOSTNAME'];
+                    $databaseName = $_ENV['MYSQL_DATABASE'];
+                    $userName = $_ENV['MYSQL_USER'];
+                    $userPassword = $_ENV['MYSQL_PASSWORD'];
 
                     return new PDO('mysql:host=' . $hostName . ';dbname=' . $databaseName . ';port=' . $port, $userName, $userPassword);
                 } catch (PDOException $exception) {
