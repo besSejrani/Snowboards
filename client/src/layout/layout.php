@@ -32,8 +32,11 @@
 
     <?= $content ?>
 
-    <footer>
+    <footer style="height: 200px;">
+
+        <div class="bg-primary h-100"></div>
     </footer>
+
 
 </body>
 
