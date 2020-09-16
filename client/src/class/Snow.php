@@ -27,11 +27,11 @@ class Snow
         // return $result;
     }
 
-    public function deleteSnow()
+    public function deleteSnow(string $id)
     {
-        // $sql = "DELETE FROM snows where idSnow=$_GET[idSnow]";
-        // $db = new DB();
-        // $result = $db->executeQuerySelect($sql);
-        // return $result;
+
+        $sql = "DELETE FROM snows WHERE idSnow='$id'";
+        $db = new DB();
+        return  $db->executeQuerySelect($sql);
     }
 }

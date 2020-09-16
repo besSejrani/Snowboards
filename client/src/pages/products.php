@@ -47,8 +47,8 @@ EOT;
     <td>$snow[Boots]</td>
     <td>$snow[Type]</td>
     <td>$snow[Disponibilite]</td>
-    <td><a href=snow_delete.php?idSnow=$snow[idSnow]>Détruire</a></td>
-    <td><a href=snow_update.php?idSnow=$snow[idSnow]>Modifier</a></td>
+    <td><a href=snow_delete/$snow[idSnow]>Détruire</a></td>
+    <td><a href=snow_update/$snow[idSnow]>Modifier</a></td>
     </tr>
     
     EOT;

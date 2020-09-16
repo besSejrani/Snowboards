@@ -53,11 +53,19 @@ $router->map(
 );
 $router->map(
     'GET',
-    '/snow_update',
+    '/snow_update/[a:action]',
     function () {
         require  __DIR__ . "/../src/pages/snow_update.php";
     },
-    "snow_update"
+    "snow_update product"
+);
+$router->map(
+    'GET',
+    '/snow_delete/[a:action]',
+    function () {
+        require  __DIR__ . "/../src/pages/snow_delete.php";
+    },
+    "snow_delete product"
 );
 $router->map(
     'GET',
@@ -87,7 +95,7 @@ $router->map(
 
 $match = $router->match();
 // dump($match);
-// dump($match['target']);
+//dump($match['target']);
 // test
 if (is_array($match) && is_callable($match['target'])) {
     call_user_func_array($match['target'], $match['params']);
