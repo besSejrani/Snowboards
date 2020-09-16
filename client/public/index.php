@@ -21,6 +21,14 @@ $router->map(
 );
 $router->map(
     'GET',
+    '/events',
+    function () {
+        require __DIR__ . "/../src/pages/events.php";
+    },
+    "events"
+);
+$router->map(
+    'GET',
     '/products',
     function () {
         require __DIR__ . "/../src/pages/products.php";
