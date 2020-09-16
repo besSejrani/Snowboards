@@ -9,6 +9,6 @@ $title = "Snowboards | 404";
 
 
 <?php
-
+$js = '';
 $content = ob_get_clean();
 require(dirname(__DIR__)  . DIRECTORY_SEPARATOR . "layout" . DIRECTORY_SEPARATOR . "layout.php");
