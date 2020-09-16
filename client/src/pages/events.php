@@ -4,10 +4,10 @@
 ob_start();
 $title = "Snowboards | Events";
 ?>
-<div class="d-flex container justify-content-center align-items-center vh-100 flex-wrap my-5">
+<div class="d-flex container flex-wrap my-5">
 
-    <div class="col-xl-3">
-        <div class="card">
+    <div class="col-xl-4">
+        <div class="card my-4">
             <img src="/assets/1.jpg" class="card-img-top" alt="">
             <div class="card-body">
                 <h5 class="card-title">Card title</h5>
@@ -19,8 +19,8 @@ $title = "Snowboards | Events";
         </div>
     </div>
 
-    <div class="col-xl-3">
-        <div class="card">
+    <div class="col-xl-4">
+        <div class="card my-4">
             <img src="/assets/1.jpg" class="card-img-top" alt="">
             <div class="card-body">
                 <h5 class="card-title">Card title</h5>
@@ -32,8 +32,8 @@ $title = "Snowboards | Events";
         </div>
     </div>
 
-    <div class="col-xl-3">
-        <div class="card">
+    <div class="col-xl-4">
+        <div class="card my-4">
             <img src="/assets/1.jpg" class="card-img-top" alt="">
             <div class="card-body">
                 <h5 class="card-title">Card title</h5>
@@ -45,8 +45,8 @@ $title = "Snowboards | Events";
         </div>
     </div>
 
-    <div class="col-xl-3">
-        <div class="card">
+    <div class="col-xl-4">
+        <div class="card my-4">
             <img src="/assets/1.jpg" class="card-img-top" alt="">
             <div class="card-body">
                 <h5 class="card-title">Card title</h5>
@@ -58,8 +58,8 @@ $title = "Snowboards | Events";
         </div>
     </div>
 
-    <div class="col-xl-3">
-        <div class="card">
+    <div class="col-xl-4">
+        <div class="card my-4">
             <img src="/assets/1.jpg" class="card-img-top" alt="">
             <div class="card-body">
                 <h5 class="card-title">Card title</h5>
@@ -71,8 +71,8 @@ $title = "Snowboards | Events";
         </div>
     </div>
 
-    <div class="col-xl-3">
-        <div class="card">
+    <div class="col-xl-4">
+        <div class="card my-4">
             <img src="/assets/1.jpg" class="card-img-top" alt="">
             <div class="card-body">
                 <h5 class="card-title">Card title</h5>
@@ -84,8 +84,8 @@ $title = "Snowboards | Events";
         </div>
     </div>
 
-    <div class="col-xl-3">
-        <div class="card">
+    <div class="col-xl-4">
+        <div class="card my-4">
             <img src="/assets/1.jpg" class="card-img-top" alt="">
             <div class="card-body">
                 <h5 class="card-title">Card title</h5>
@@ -97,8 +97,8 @@ $title = "Snowboards | Events";
         </div>
     </div>
 
-    <div class="col-xl-3">
-        <div class="card">
+    <div class="col-xl-4">
+        <div class="card my-4">
             <img src="/assets/1.jpg" class="card-img-top" alt="">
             <div class="card-body">
                 <h5 class="card-title">Card title</h5>
