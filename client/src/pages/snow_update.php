@@ -1,5 +1,4 @@
 ﻿<?php require_once(dirname(__DIR__) . DIRECTORY_SEPARATOR . "class" . DIRECTORY_SEPARATOR . "Snow.php");
-$title = "Update Snowboard";
 
 $db = new Snow();
 $snow = $db->getASnow($_GET['snowId']);
@@ -9,6 +8,8 @@ $boots = $snow[$index]['Boots'];
 $type = $snow[$index]['Type'];
 $disponibilite = $snow[$index]['Disponibilite'];
 
+ob_start();
+$title = "Snowboards | Update Snowboard";
 ?>
 
 
@@ -45,3 +46,8 @@ $disponibilite = $snow[$index]['Disponibilite'];
         </tr>
     </table>
 </form>
+
+<?php
+$js = '';
+$content = ob_get_clean();
+require(dirname(__DIR__)  . DIRECTORY_SEPARATOR . "layout" . DIRECTORY_SEPARATOR . "layout.php");

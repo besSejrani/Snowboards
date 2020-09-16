@@ -1,4 +1,9 @@
-<?php $title = "Login" ?>
+<?php
+
+
+ob_start();
+$title = "Snowboards | Login";
+?>
 
 <div class="d-flex flex-column justify-content-center align-items-center vh-100">
     <form class="form container " method=" POST" action="snow_add_data.php">
@@ -27,3 +32,8 @@
     </form>
 
 </div>
+
+<?php
+$js = '';
+$content = ob_get_clean();
+require(dirname(__DIR__)  . DIRECTORY_SEPARATOR . "layout" . DIRECTORY_SEPARATOR . "layout.php");

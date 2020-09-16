@@ -1,9 +1,10 @@
 <?php
-$title = "Products";
+
 require_once(dirname(__DIR__, 2) . DIRECTORY_SEPARATOR . "vendor" . DIRECTORY_SEPARATOR . "autoload.php");
 require_once(dirname(__DIR__) . DIRECTORY_SEPARATOR . "class" . DIRECTORY_SEPARATOR . "Snow.php");
+ob_start();
+$title = "Snowboards | Products";
 ?>
-
 
 <div class="d-flex flex-column justify-content-center align-items-center vh-100">
 
@@ -77,3 +78,8 @@ EOT;
         </ul>
     </div>
 </div>
+
+<?php
+$js = '';
+$content = ob_get_clean();
+require(dirname(__DIR__)  . DIRECTORY_SEPARATOR . "layout" . DIRECTORY_SEPARATOR . "layout.php");

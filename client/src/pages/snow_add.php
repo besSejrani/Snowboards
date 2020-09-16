@@ -1,4 +1,7 @@
-﻿<?php $title = "Add Snowboard" ?>
+﻿<?php
+ob_start();
+$title = "Snowboards | Add Snowboard";
+?>
 
 <div class="d-flex justify-content-center align-items-center vh-100">
     <form class="form container " method="POST" action="snow_add_data">
@@ -29,3 +32,9 @@
         <input type="reset" class="btn" value="Effacer" />
     </form>
 </div>
+
+<?php
+
+$js = '';
+$content = ob_get_clean();
+require(dirname(__DIR__)  . DIRECTORY_SEPARATOR . "layout" . DIRECTORY_SEPARATOR . "layout.php");

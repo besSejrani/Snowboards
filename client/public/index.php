@@ -8,6 +8,7 @@ $router = new AltoRouter();
 //$router->setBasePath('/public');
 
 $content = null;
+$js = null;
 $title = null;
 
 $router->map(
@@ -89,14 +90,8 @@ $match = $router->match();
 // dump($match['target']);
 // test
 if (is_array($match) && is_callable($match['target'])) {
-    ob_start();
     call_user_func_array($match['target'], $match['params']);
-    $content = ob_get_clean();
-    $title = ob_get_clean();
-
-    require(dirname(__DIR__) . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARATOR . "layout" . DIRECTORY_SEPARATOR . "layout.php");
 } else {
     // No route was matched
-    require(dirname(__DIR__) . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARATOR . "layout" . DIRECTORY_SEPARATOR . "layout.php");
     require_once(dirname(__DIR__) . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARATOR . "pages" . DIRECTORY_SEPARATOR . "404.php");
 }
