@@ -24,7 +24,7 @@ $title = "Snowboards | Login";
             <input class="btn btn-primary" type="submit" value="Submit" />
 
             <div class="d-flex">
-                <h6>Not a member ?</h6>
+                <h6>Not a member ? </h6>
                 <a href="/register"> Register</a>
             </div>
         </div>
