@@ -1,20 +1,19 @@
 <?php
 require_once(dirname(__DIR__, 2) . DIRECTORY_SEPARATOR . "vendor" . DIRECTORY_SEPARATOR . "autoload.php");
-require_once(dirname(__DIR__) . DIRECTORY_SEPARATOR . "model" . DIRECTORY_SEPARATOR . "db.php");
+require_once(dirname(__DIR__) . DIRECTORY_SEPARATOR . "class" . DIRECTORY_SEPARATOR . "Snow.php");
 ?>
-<hr>
 
 <?php
-$snowboard = $_POST;
-foreach ($snowboard as $info) {
-  echo $info;
-}
+$coupon = $_POST['coupon'];
+$brand = $_POST['brand'];
+$boots = $_POST['boots'];
+$type = $_POST['type'];
+$available = $_POST['available'];
 
-?>
-<pre>
-  <?php dump($_POST) ?>
-</pre>
-<?php
-// header('Location: http://localhost:3000/');
-// exit;
+$db = new Snow();
+$snow = $db->addSnow($coupon, $brand, $boots, $type, $available);
+DB::disconnect();
+
+header('Location: http://localhost:3000/products');
+exit;
 ?>

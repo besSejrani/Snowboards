@@ -14,6 +14,7 @@ $boots = $snow[0]['Boots'];
 $type = $snow[0]['Type'];
 $disponibilite = $snow[0]['Disponibilite'];
 
+DB::disconnect();
 ob_start();
 $title = "Snowboards | Update Snowboard";
 ?>

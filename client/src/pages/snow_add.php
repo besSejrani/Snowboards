@@ -4,10 +4,10 @@ $title = "Snowboards | Add Snowboard";
 ?>
 
 <div class="d-flex justify-content-center align-items-center vh-100">
-    <form class="form container " method="POST" action="snow_add_data">
+    <form class="form container " method="POST" action="snow_data_add">
         <div class=" form-group">
-            <label for="code">Snow Code</label>
-            <input type="text" class="form-control" id="code" name="code">
+            <label for="coupon">Snow coupon</label>
+            <input type="text" class="form-control" id="coupon" name="coupon">
         </div>
         <div class="form-group">
             <label for="brand">Brand</label>
@@ -34,7 +34,6 @@ $title = "Snowboards | Add Snowboard";
 </div>
 
 <?php
-
 $js = '';
 $content = ob_get_clean();
 require(dirname(__DIR__)  . DIRECTORY_SEPARATOR . "layout" . DIRECTORY_SEPARATOR . "layout.php");

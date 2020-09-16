@@ -44,10 +44,10 @@ $router->map(
     "snow_add"
 );
 $router->map(
-    'GET',
-    '/snow_add_data',
+    'POST',
+    '/snow_data_add',
     function () {
-        require  __DIR__ . "/../src/pages/snow_add_data.php";
+        require  __DIR__ . "/../src/controller/snow_add_data.php";
     },
     "snow_add_data"
 );
