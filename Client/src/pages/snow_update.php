@@ -1,12 +1,8 @@
 ﻿<?php
-require_once(dirname(__DIR__, 2) . DIRECTORY_SEPARATOR . "vendor" . DIRECTORY_SEPARATOR . "autoload.php");
-require_once(dirname(__DIR__) . DIRECTORY_SEPARATOR . "class" . DIRECTORY_SEPARATOR . "Snow.php");
 
-$uri = $_SERVER['REQUEST_URI'];
-$product = explode('/', $uri)[2];
+require_once(dirname(__DIR__) . DIRECTORY_SEPARATOR . "controller" . DIRECTORY_SEPARATOR . "snowActions.php");
 
-$db = new Snow();
-$snow = $db->getASnow($product);
+$snow = SnowActions::updateData();
 
 $idsnow = $snow[0]['idSnow'];
 $marque = $snow[0]['Marque'];
@@ -14,7 +10,6 @@ $boots = $snow[0]['Boots'];
 $type = $snow[0]['Type'];
 $disponibilite = $snow[0]['Disponibilite'];
 
-DB::disconnect();
 ob_start();
 $title = "Snowboards | Update Snowboard";
 ?>

@@ -4,7 +4,7 @@ $title = "Snowboards | Add Snowboard";
 ?>
 
 <div class="d-flex justify-content-center align-items-center vh-100">
-    <form class="form container " method="POST" action="snow_data_add">
+    <form class="form container " method="POST" action="snowActions">
         <div class=" form-group">
             <label for="coupon">Snow coupon</label>
             <input type="text" class="form-control" id="coupon" name="coupon">

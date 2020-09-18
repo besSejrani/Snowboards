@@ -11,6 +11,8 @@ $content = null;
 $js = null;
 $title = null;
 
+session_start();
+
 $router->map(
     'GET',
     '/',
@@ -45,11 +47,13 @@ $router->map(
 );
 $router->map(
     'POST',
-    '/snow_data_add',
+    '/snowActions',
     function () {
-        require  __DIR__ . "/../src/controller/snow_add_data.php";
+        require  __DIR__ . "/../src/controller/snowActions.php";
+        $action = new SnowActions();
+        $action->addData();
     },
-    "snow_add_data"
+    "snowActions"
 );
 $router->map(
     'GET',
@@ -82,6 +86,16 @@ $router->map(
         require  __DIR__ . "/../src/pages/login.php";
     },
     "login"
+);
+$router->map(
+    'GET',
+    '/logout',
+    function () {
+        require_once(dirname(__DIR__) . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARATOR . "class" . DIRECTORY_SEPARATOR . "User.php");
+        $session = new User();
+        $session->logout();
+    },
+    "logout"
 );
 $router->map(
     'GET',
