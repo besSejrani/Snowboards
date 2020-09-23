@@ -23,11 +23,13 @@
             <a class="nav-link active p-2" href="/">Home <span class="sr-only"></span></a>
             <a class="nav-link active p-2" href="/events">Events <span class="sr-only"></span></a>
             <a class="nav-link active p-2" href="/products">Products<span class="sr-only"></span></a>
+
             <?php if (!isset($_SESSION['role'])) : ?>
             <a class="nav-link active p-2" href="/login">Login<span class="sr-only"></span></a>
             <?php else : ?>
             <a class="nav-link active p-2" href="/logout">Logout<span class="sr-only"></span></a>
             <?php endif; ?>
+
         </div>
     </div>
 </nav>

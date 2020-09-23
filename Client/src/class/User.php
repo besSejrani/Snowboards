@@ -1,23 +1,68 @@
 <?php
 
-require_once(dirname(__DIR__) . DIRECTORY_SEPARATOR . "model" . DIRECTORY_SEPARATOR . "db.php");
+require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . "model" . DIRECTORY_SEPARATOR . "db.php";
 
 class User
 {
 
-    public function register()
+    public static function Register(string $username, string $email, string $password, string $confirmPassword)
     {
-        //    password_hash();
-        //    password_verify
+        try {
+            if ($password != $confirmPassword) {
+                throw new Error("Password doesn't mtach confirmPassword");
+            }
+
+            $hashOptions = [
+                'cost' => 10,
+            ];
+            $hash = password_hash($password, PASSWORD_BCRYPT, $hashOptions);
+
+
+            $sql = "INSERT INTO users (email, password, username) VALUES('$email', '$hash', '$username')";
+            $db = new DB();
+            DB::disconnect();
+            $db->executeQuerySelect($sql);
+
+            header("location: http://localhost:3000/");
+        } catch (Exception $e) {
+            throw new Error($e);
+        }
     }
 
-    public function login()
+    public static function Login(string $email, string $password)
     {
+        try {
 
-        // $_SESSION['role'] = "admin";
+            //Get user
+            $sql = "SELECT * FROM snows.users where email='$email'";
+            $db = new DB();
+            DB::disconnect();
+            $user = $db->executeQuerySelect($sql);
+
+            dump($user);
+            //Check if user exists
+            if ($email != $user[0]['email']) {
+                throw new Error("Invalid Credentials");
+            }
+
+            // Hash
+            $hashOptions = [
+                'cost' => 10,
+            ];
+            $hash = password_hash($password, PASSWORD_BCRYPT, $hashOptions);
+
+            if (!password_verify($password, $hash)) {
+                header("location: http://localhost:3000/login");
+            } elseif (password_verify($password, $hash)) {
+                $_SESSION['role'] = "admin";
+                header("location: http://localhost:3000/");
+            }
+        } catch (Exception $e) {
+            throw new Error($e);
+        }
     }
 
-    public function logout()
+    public static function Logout()
     {
         session_destroy();
         header("location: http://localhost:3000/");

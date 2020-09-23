@@ -59,7 +59,6 @@ EOT;
 </table>   
 EOT;
 
-    DB::disconnect()
     ?>
 
     <div class="d-flex align-items-center justify-content-center mt-5">

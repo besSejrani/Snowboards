@@ -1,23 +1,19 @@
 <?php
-
-
 ob_start();
 $title = "Snowboards | Login";
 ?>
 
 <div class="d-flex flex-column justify-content-center align-items-center vh-100">
-    <form class="form container " method=" POST" action="snow_add_data.php">
+    <form class="form container " method="POST" action="/login">
 
-        <div class=" form-group">
+        <div class="form-group">
             <label for="email">Email</label>
-            <input type="text" class="form-control" placeholder="Entrez le code de votre snow" id="email" name="fID"
-                value="">
+            <input type="text" class="form-control" id="email" name="email">
         </div>
 
         <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" class="form-control" placeholder="Entrez la marque" id="password" name="fMarque"
-                value="">
+            <input type="password" class="form-control" id="password" name="password">
         </div>
 
         <div class="d-flex justify-content-between align-items-center">
