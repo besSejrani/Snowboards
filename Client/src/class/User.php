@@ -39,7 +39,7 @@ class User
             DB::disconnect();
             $user = $db->executeQuerySelect($sql);
 
-            dump($user);
+            // dump($user);
             //Check if user exists
             if ($email != $user[0]['email']) {
                 throw new Error("Invalid Credentials");
@@ -51,11 +51,13 @@ class User
             ];
             $hash = password_hash($password, PASSWORD_BCRYPT, $hashOptions);
 
-            if (!password_verify($password, $hash)) {
-                header("location: http://localhost:3000/login");
-            } elseif (password_verify($password, $hash)) {
+            $verify =  password_verify($password, $user[0]['password']);
+
+            if ($verify) {
                 $_SESSION['role'] = "admin";
                 header("location: http://localhost:3000/");
+            } else {
+                header("Location: http://localhost:3000/login");
             }
         } catch (Exception $e) {
             throw new Error($e);
@@ -65,6 +67,6 @@ class User
     public static function Logout()
     {
         session_destroy();
-        header("location: http://localhost:3000/");
+        header("Location: http://localhost:3000/");
     }
 }

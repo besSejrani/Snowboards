@@ -40,11 +40,11 @@ $router->map(
     'POST',
     '/login',
     function () {
+        require_once(dirname(__DIR__)  . DIRECTORY_SEPARATOR . "class" . DIRECTORY_SEPARATOR . "User.php");
 
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        require_once(dirname(__DIR__)  . DIRECTORY_SEPARATOR . "class" . DIRECTORY_SEPARATOR . "User.php");
         User::Login($email, $password);
     },
     "postLogin"
