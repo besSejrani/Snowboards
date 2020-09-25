@@ -14,15 +14,13 @@ class SnowActions
         $available = $_POST['available'];
 
         $db = new Snow();
-        DB::disconnect();
         $db->addSnow($coupon, $brand, $boots, $type, $available);
-
         header('Location: http://localhost:3000/products');
     }
 
-    public function deleteData()
+    /*   public function deleteData()
     {
-    }
+    } */
 
     public static function updateData()
     {
@@ -30,7 +28,6 @@ class SnowActions
         $product = explode('/', $uri)[2];
 
         $db = new Snow();
-        DB::disconnect();
         return $db->getASnow($product);
     }
 }

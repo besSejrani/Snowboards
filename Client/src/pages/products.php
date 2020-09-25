@@ -33,6 +33,7 @@ $title = "Snowboards | Products";
     <?php
     $db = new Snow();
     $snows = $db->getSnows();
+    DB::disconnect();
 
 
     echo <<<EOT

@@ -3,6 +3,7 @@
 require_once(dirname(__DIR__) . DIRECTORY_SEPARATOR . "controller" . DIRECTORY_SEPARATOR . "snowActions.php");
 
 $snow = SnowActions::updateData();
+DB::disconnect();
 
 $idsnow = $snow[0]['idSnow'];
 $marque = $snow[0]['Marque'];

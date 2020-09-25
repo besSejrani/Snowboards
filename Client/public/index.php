@@ -17,7 +17,7 @@ require_once(dirname(__DIR__)  . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARAT
 require_once(dirname(__DIR__)  . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARATOR . "routes" . DIRECTORY_SEPARATOR . "products.php");
 require_once(dirname(__DIR__)  . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARATOR . "routes" . DIRECTORY_SEPARATOR . "admin.php");
 require_once(dirname(__DIR__)  . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARATOR . "routes" . DIRECTORY_SEPARATOR . "authentication.php");
-require_once(dirname(__DIR__)  . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARATOR . "routes" . DIRECTORY_SEPARATOR . "authorization.php");
+#require_once(dirname(__DIR__)  . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARATOR . "routes" . DIRECTORY_SEPARATOR . "authorization.php");
 
 
 $match = $router->match();

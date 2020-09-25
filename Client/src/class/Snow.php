@@ -8,7 +8,7 @@ class Snow
     {
         $sql = "SELECT * FROM snows WHERE idSnow='$id'";
         $db = new DB();
-        DB::disconnect();
+
         return $db->executeQuerySelect($sql);
     }
 
@@ -16,7 +16,6 @@ class Snow
     {
         $sql = "SELECT * FROM snows order by idSnow";
         $db = new DB();
-        DB::disconnect();
         return $db->executeQuerySelect($sql);
     }
 
@@ -24,7 +23,6 @@ class Snow
     {
         $sql = "INSERT INTO snows (idSnow, Marque, Boots, Type, Disponibilite) VALUES('$coupon', '$brand', '$boots', '$type', '$availability')";
         $db = new DB();
-        DB::disconnect();
         return $db->executeQuerySelect($sql);
     }
 
@@ -40,7 +38,7 @@ class Snow
 
         $sql = "DELETE FROM snows WHERE idSnow='$id'";
         $db = new DB();
-        DB::disconnect();
+
         return $db->executeQuerySelect($sql);
     }
 }
