@@ -31,7 +31,6 @@ $title = "Snowboards | Products";
     </div>
 
     <?php
-
     $db = new Snow();
     $snows = $db->getSnows();
 
@@ -49,6 +48,7 @@ $title = "Snowboards | Products";
 </thead>
 <tbody>
 EOT;
+
 
 
     foreach ($snows as $snow) {

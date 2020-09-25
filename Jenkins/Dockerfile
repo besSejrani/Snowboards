@@ -11,7 +11,7 @@ RUN apt update \
     && apt install -y sudo \
     && rm -rf /var/lib/apt/lists/*
 
-RUN usermod -a -G root jenkins
+RUN usermod -aG root jenkins
 RUN usermod -aG docker jenkins
 
 USER jenkins
