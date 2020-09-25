@@ -5,7 +5,7 @@ services:
     build:
       context: ./Nginx
     depends_on:
-      - php-fpm
+      - client
       - mysql
     networks:
       - backend
@@ -17,9 +17,9 @@ services:
 
   # ==============================================================================================================================
 
-  php-fpm:
+  client:
     build:
-      context: ./Php-Fpm
+      context: ./Client
     networks:
       - backend
     ports:
