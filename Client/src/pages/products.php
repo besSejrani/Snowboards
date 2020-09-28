@@ -19,7 +19,7 @@ $title = "Snowboards | Products";
 
                 <div>
                     <select class="custom-select" id="inputGroupSelect01">
-                        <option selected>Selection</option>
+                        <option selected>Category</option>
                         <option value="1">User</option>
                         <option value="2">Snows</option>
                         <option value="3">Events</option>

@@ -1,15 +1,31 @@
 <?php
 require_once(dirname(__DIR__) . DIRECTORY_SEPARATOR . "vendor" . DIRECTORY_SEPARATOR . "autoload.php");
 
-$router = new AltoRouter();
-//$router->setBasePath('/public');
+// ========================================================================================================
 
-// Layout variables
+// Meta tags SEO
+$title = null;
+$description = null;
+
+// Keywords
+
+// Google
+
+// Open Graph protocol
+
+// Geo Location
+
+// Language
+
+// Layout
 $content = null;
 $js = null;
-$title = null;
+
+// ========================================================================================================
 
 session_start();
+
+$router = new AltoRouter();
 
 // Routes Available
 require_once(dirname(__DIR__)  . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARATOR . "routes" . DIRECTORY_SEPARATOR . "pages.php");
@@ -17,7 +33,8 @@ require_once(dirname(__DIR__)  . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARAT
 require_once(dirname(__DIR__)  . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARATOR . "routes" . DIRECTORY_SEPARATOR . "products.php");
 require_once(dirname(__DIR__)  . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARATOR . "routes" . DIRECTORY_SEPARATOR . "admin.php");
 require_once(dirname(__DIR__)  . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARATOR . "routes" . DIRECTORY_SEPARATOR . "authentication.php");
-#require_once(dirname(__DIR__)  . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARATOR . "routes" . DIRECTORY_SEPARATOR . "authorization.php");
+require_once(dirname(__DIR__)  . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARATOR . "routes" . DIRECTORY_SEPARATOR . "authorization.php");
+
 
 
 $match = $router->match();

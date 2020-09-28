@@ -16,6 +16,7 @@
         {
             if (self::$connection == null) {
                 try {
+
                     $port = $_ENV['MYSQL_PORT'];
                     $hostName = $_ENV['MYSQL_HOSTNAME'];
                     $databaseName = $_ENV['MYSQL_DATABASE'];

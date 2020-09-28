@@ -20,6 +20,8 @@ services:
   php-fpm:
     build:
       context: ./Php-Fpm
+    depends_on:
+      - mysql
     networks:
       - backend
     ports:
@@ -30,7 +32,8 @@ services:
       - MYSQL_PASSWORD=123456789
       - MYSQL_ROOT_PASSWORD=123456789
       - MYSQL_DATABASE=snows
-      - MYSQL_PORT=3306
+      - MYSQL_PORT=3307
+
     volumes:
       - ./Client:/var/www/html:delegated
 
@@ -41,14 +44,16 @@ services:
     networks:
       - backend
     ports:
-      - "3306:3306"
+      - "3307:3307"
     environment:
       - MYSQL_HOSTNAME=127.0.0.1
       - MYSQL_USER=bes
       - MYSQL_PASSWORD=123456789
       - MYSQL_ROOT_PASSWORD=123456789
       - MYSQL_DATABASE=snows
-      - MYSQL_PORT=3306
+      - MYSQL_PORT=3307
+      - MYSQL_TCP_PORT=3307
+      - MYSQL_UNIX_PORT=3307
     volumes:
       - ~/docker/Snowboards/mysql:/var/lib/mysql
 

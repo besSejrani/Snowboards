@@ -15,7 +15,7 @@ $snows = $db->deleteSnow($product);
 DB::disconnect();
 
 // Redirection
-header('Location:http://localhost:3000/products');
+header('Location:http://localhost:8080/products');
 ?>
 
 <?php
