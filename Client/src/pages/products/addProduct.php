@@ -1,10 +1,10 @@
-﻿<?php
+<?php
 ob_start();
 $title = "Snowboards | Add Snowboard";
 ?>
 
 <div class="d-flex justify-content-center align-items-center vh-100">
-    <form class="form container " method="POST" action="snowActions">
+    <form class="form container " method="POST" action="addSnowActions">
         <div class=" form-group">
             <label for="coupon">Snow coupon</label>
             <input type="text" class="form-control" id="coupon" name="coupon">
@@ -36,4 +36,4 @@ $title = "Snowboards | Add Snowboard";
 <?php
 $js = '';
 $content = ob_get_clean();
-require(dirname(__DIR__)  . DIRECTORY_SEPARATOR . "layout" . DIRECTORY_SEPARATOR . "layout.php");
+require(dirname(__DIR__, 2)  . DIRECTORY_SEPARATOR . "layout" . DIRECTORY_SEPARATOR . "layout.php");

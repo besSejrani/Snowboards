@@ -9,27 +9,27 @@ class Snow
         $sql = "SELECT * FROM snows WHERE idSnow='$id'";
         $db = new DB();
 
-        return $db->executeQuerySelect($sql);
+        return $db->executeQuery($sql);
     }
 
     public function getSnows()
     {
         $sql = "SELECT * FROM snows order by idSnow";
         $db = new DB();
-        return $db->executeQuerySelect($sql);
+        return $db->executeQuery($sql);
     }
 
     public function addSnow(string $coupon, string $brand, string $boots, string $type, string $availability)
     {
         $sql = "INSERT INTO snows (idSnow, Marque, Boots, Type, Disponibilite) VALUES('$coupon', '$brand', '$boots', '$type', '$availability')";
         $db = new DB();
-        return $db->executeQuerySelect($sql);
+        return $db->executeQuery($sql);
     }
 
     public function updateSnow()
     {
         // $sql = "DELETE FROM snows where idSnow=$_GET[idSnow]";
-        // $result = $this->executeQuerySelect($sql);
+        // $result = $this->executeQuery($sql);
         // return $result;
     }
 
@@ -39,6 +39,6 @@ class Snow
         $sql = "DELETE FROM snows WHERE idSnow='$id'";
         $db = new DB();
 
-        return $db->executeQuerySelect($sql);
+        return $db->executeQuery($sql);
     }
 }

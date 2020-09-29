@@ -18,11 +18,20 @@ class SnowActions
         header('Location: http://localhost:8080/products');
     }
 
-    /*   public function deleteData()
+    public function deleteData()
     {
-    } */
+        // Get URI parameter
+        $uri = $_SERVER['REQUEST_URI'];
+        $product = explode('/', $uri)[2];
 
-    public static function updateData()
+        // Delete product from database
+        $db = new Snow();
+        $db->deleteSnow($product);
+
+        header('Location: http://localhost:8080/products');
+    }
+
+    public static function UpdateData()
     {
         $uri = $_SERVER['REQUEST_URI'];
         $product = explode('/', $uri)[2];

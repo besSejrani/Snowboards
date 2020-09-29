@@ -1,0 +1,26 @@
+<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>127</x><y>220</y><w>210</w><h>130</h></coordinates><panel_attributes>Snow
+--
+
+--
++ getSnow()
++ getSnows()
++ addSnow()
++ updateSnow()
++ deleteSnow()
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>500</x><y>220</y><w>210</w><h>130</h></coordinates><panel_attributes>User
+--
+
+--
++ Register &lt;&lt;static&gt;&gt;
++ Login &lt;&lt;static&gt;&gt;
++ Logout &lt;&lt;static&gt;&gt;
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>310</x><y>40</y><w>210</w><h>100</h></coordinates><panel_attributes>DB
+--
+- connection : null
+--
++ connect()
++ executeQuery()
++ Disconnect() &lt;&lt;static&gt;&gt;
+
+</panel_attributes><additional_attributes></additional_attributes></element></diagram>

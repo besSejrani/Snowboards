@@ -20,10 +20,10 @@ class User
 
             $sql = "INSERT INTO users (email, password, username) VALUES('$email', '$hash', '$username')";
             $db = new DB();
-            DB::disconnect();
-            $db->executeQuerySelect($sql);
+            DB::Disconnect();
+            $db->executeQuery($sql);
 
-            header("location: http://localhost:3000/");
+            header("location: http://localhost:8080/");
         } catch (Exception $e) {
             throw new Error($e);
         }
@@ -36,8 +36,8 @@ class User
             //Get user
             $sql = "SELECT * FROM snows.users where email='$email'";
             $db = new DB();
-            DB::disconnect();
-            $user = $db->executeQuerySelect($sql);
+            DB::Disconnect();
+            $user = $db->executeQuery($sql);
 
             // dump($user);
             //Check if user exists
@@ -45,19 +45,13 @@ class User
                 throw new Error("Invalid Credentials");
             }
 
-            // Hash
-            $hashOptions = [
-                'cost' => 10,
-            ];
-            $hash = password_hash($password, PASSWORD_BCRYPT, $hashOptions);
-
             $verify =  password_verify($password, $user[0]['password']);
 
             if ($verify) {
                 $_SESSION['role'] = "admin";
-                header("location: http://localhost:3000/");
+                header("location: http://localhost:8080/");
             } else {
-                header("Location: http://localhost:3000/login");
+                header("Location: http://localhost:8080/login");
             }
         } catch (Exception $e) {
             throw new Error($e);

@@ -1,7 +1,7 @@
 <?php
 
-require_once(dirname(__DIR__, 2) . DIRECTORY_SEPARATOR . "vendor" . DIRECTORY_SEPARATOR . "autoload.php");
-require_once(dirname(__DIR__) . DIRECTORY_SEPARATOR . "class" . DIRECTORY_SEPARATOR . "Snow.php");
+require_once(dirname(__DIR__, 3) . DIRECTORY_SEPARATOR . "vendor" . DIRECTORY_SEPARATOR . "autoload.php");
+require_once(dirname(__DIR__, 2) . DIRECTORY_SEPARATOR . "class" . DIRECTORY_SEPARATOR . "Snow.php");
 ob_start();
 $title = "Snowboards | Products";
 ?>
@@ -13,7 +13,7 @@ $title = "Snowboards | Products";
             <h1>Products</h1>
 
             <div class="d-flex">
-                <a class="mx-3" href="/snow_add">
+                <a class="mx-3" href="/addProduct">
                     <button type="button" class="btn btn-primary">Add Snow</button>
                 </a>
 
@@ -33,8 +33,6 @@ $title = "Snowboards | Products";
     <?php
     $db = new Snow();
     $snows = $db->getSnows();
-    DB::disconnect();
-
 
     echo <<<EOT
 <table class="table table-dark container mb-5">
@@ -61,8 +59,8 @@ EOT;
     <td>$snow[Boots]</td>
     <td>$snow[Type]</td>
     <td>$snow[Disponibilite]</td>
-    <td><a href=snow_delete/$snow[idSnow]>Détruire</a></td>
-    <td><a href=snow_update/$snow[idSnow]>Modifier</a></td>
+    <td><a href=deleteSnowActions/$snow[idSnow]>Détruire</a></td>
+    <td><a href=updateProduct/$snow[idSnow]>Modifier</a></td>
     </tr>
     
     EOT;
@@ -105,4 +103,4 @@ $js = '
 </script>
 ';
 $content = ob_get_clean();
-require(dirname(__DIR__)  . DIRECTORY_SEPARATOR . "layout" . DIRECTORY_SEPARATOR . "layout.php");
+require(dirname(__DIR__, 2)  . DIRECTORY_SEPARATOR . "layout" . DIRECTORY_SEPARATOR . "layout.php");

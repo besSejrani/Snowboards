@@ -4,50 +4,54 @@ $router->map(
     'GET',
     '/products',
     function () {
-        require __DIR__ . "/../pages/products.php";
+        require __DIR__ . "/../pages/products/products.php";
     },
     "products"
 );
 
+// ========================================================================================================
+
 $router->map(
     'GET',
-    '/snow_add',
+    '/addProduct',
     function () {
-        require __DIR__ . "/../pages/snow_add.php";
+        require __DIR__ . "/../pages/products/addProduct.php";
     },
-    "snow_add"
+    "addProduct"
 );
+
+// ========================================================================================================
+
 $router->map(
     'POST',
-    '/snowActions',
+    '/addSnowActions',
     function () {
         require __DIR__ . "/../controller/snowActions.php";
         $action = new SnowActions();
         $action->addData();
     },
-    "snowActions"
+    "addSnowActions"
 );
+// ========================================================================================================
+
 $router->map(
     'GET',
-    '/snow_delete',
+    '/updateProduct/[a:action]',
     function () {
-        require __DIR__ . "/../pages/snow_delete.php";
-    },
-    "snow_delete"
-);
-$router->map(
-    'GET',
-    '/snow_update/[a:action]',
-    function () {
-        require __DIR__ . "/../pages/snow_update.php";
+        require __DIR__ . "/../pages/products/updateProduct.php";
     },
     "snow_update product"
 );
+
+// ========================================================================================================
+
 $router->map(
     'GET',
-    '/snow_delete/[a:action]',
+    '/deleteSnowActions/[a:action]',
     function () {
-        require __DIR__ . "/../pages/snow_delete.php";
+        require __DIR__ . "/../controller/snowActions.php";
+        $action = new SnowActions();
+        $action->deleteData();
     },
-    "snow_delete product"
+    "deleteSnowActions"
 );
