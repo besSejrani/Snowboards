@@ -3,7 +3,7 @@
 //Redis
 $redis2 = new \Redis();
 $redis2->connect('redis');
-//$redis2->set('foo', 'bar2');
+$redis2->set('foo', 'besMasta');
 
 ob_start();
 $title = "Snowboards | 404";
