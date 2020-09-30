@@ -5,7 +5,7 @@ require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . "model" . DIRECTORY_SEPARA
 class User
 {
 
-    public static function Register(string $username, string $email, string $password, string $confirmPassword)
+    public static function Register(string $firstname, string $lastname, string $username, string $email, string $password, string $confirmPassword)
     {
         try {
             if ($password != $confirmPassword) {
@@ -17,10 +17,8 @@ class User
             ];
             $hash = password_hash($password, PASSWORD_BCRYPT, $hashOptions);
 
-
-            $sql = "INSERT INTO users (email, password, username) VALUES('$email', '$hash', '$username')";
+            $sql = "INSERT INTO snows_bes.user (firstname, lastname, email, password, username) VALUES('$firstname', '$lastname', '$email', '$hash', '$username')";
             $db = new DB();
-            DB::Disconnect();
             $db->executeQuery($sql);
 
             header("location: http://localhost:8080/");
@@ -34,12 +32,10 @@ class User
         try {
 
             //Get user
-            $sql = "SELECT * FROM snows.users where email='$email'";
+            $sql = "SELECT * FROM snows_bes.user where email='$email'";
             $db = new DB();
-            DB::Disconnect();
             $user = $db->executeQuery($sql);
 
-            // dump($user);
             //Check if user exists
             if ($email != $user[0]['email']) {
                 throw new Error("Invalid Credentials");
@@ -61,6 +57,6 @@ class User
     public static function Logout()
     {
         session_destroy();
-        header("Location: http://localhost:3000/");
+        header("Location: http://localhost:8080/");
     }
 }

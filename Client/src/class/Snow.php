@@ -8,7 +8,6 @@ class Snow
     {
         $sql = "SELECT * FROM snows WHERE idSnow='$id'";
         $db = new DB();
-
         return $db->executeQuery($sql);
     }
 
@@ -38,7 +37,6 @@ class Snow
 
         $sql = "DELETE FROM snows WHERE idSnow='$id'";
         $db = new DB();
-
         return $db->executeQuery($sql);
     }
 }

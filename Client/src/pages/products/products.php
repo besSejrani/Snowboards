@@ -2,6 +2,7 @@
 
 require_once(dirname(__DIR__, 3) . DIRECTORY_SEPARATOR . "vendor" . DIRECTORY_SEPARATOR . "autoload.php");
 require_once(dirname(__DIR__, 2) . DIRECTORY_SEPARATOR . "class" . DIRECTORY_SEPARATOR . "Snow.php");
+require_once(dirname(__DIR__, 2) . DIRECTORY_SEPARATOR . "class" . DIRECTORY_SEPARATOR . "Category.php");
 ob_start();
 $title = "Snowboards | Products";
 ?>
@@ -19,10 +20,21 @@ $title = "Snowboards | Products";
 
                 <div>
                     <select class="custom-select" id="inputGroupSelect01">
-                        <option selected>Category</option>
-                        <option value="1">User</option>
-                        <option value="2">Snows</option>
-                        <option value="3">Events</option>
+
+                        <?php
+                        $categories = Category::getCategories();
+
+                        echo <<< EOT
+                            <option selected>All</option>
+                        EOT;
+
+                        foreach ($categories as $category) {
+                            echo <<< EOT
+                                <option value=$category[0]>$category[1]</option>
+                        EOT;
+                        }
+                        ?>
+
                     </select>
                 </div>
             </div>
@@ -35,41 +47,39 @@ $title = "Snowboards | Products";
     $snows = $db->getSnows();
 
     echo <<<EOT
-<table class="table table-dark container mb-5">
-<thead>
-<tr>
-<th>ID</th>
-<th>Brand</th>
-<th>Boots</th>
-<th>Type</th>
-<th>Available</th>
-</tr>
-</thead>
-<tbody>
-EOT;
+        <table class="table table-dark container mb-5">
+        <thead>
+        <tr>
+        <th>ID</th>
+        <th>Brand</th>
+        <th>Boots</th>
+        <th>Type</th>
+        <th>Available</th>
+        </tr>
+        </thead>
+        <tbody>
+    EOT;
 
 
 
     foreach ($snows as $snow) {
         echo <<<EOT
-       
-    <tr>
-    <td>$snow[idSnow]</td>
-    <td>$snow[Marque]</td>
-    <td>$snow[Boots]</td>
-    <td>$snow[Type]</td>
-    <td>$snow[Disponibilite]</td>
-    <td><a href=deleteSnowActions/$snow[idSnow]>Détruire</a></td>
-    <td><a href=updateProduct/$snow[idSnow]>Modifier</a></td>
-    </tr>
-    
-    EOT;
+            <tr>
+            <td>$snow[idSnow]</td>
+            <td>$snow[Marque]</td>
+            <td>$snow[Boots]</td>
+            <td>$snow[Type]</td>
+            <td>$snow[Disponibilite]</td>
+            <td><a href=deleteSnowActions/$snow[idSnow]>Détruire</a></td>
+            <td><a href=updateProduct/$snow[idSnow]>Modifier</a></td>
+            </tr>
+        EOT;
     }
 
     echo <<<EOT
-</tbody>
-</table>   
-EOT;
+                </tbody>
+                </table>   
+        EOT;
 
     ?>
 

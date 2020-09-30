@@ -29,10 +29,10 @@ services:
       - "9000:9000"
     environment:
       - MYSQL_HOSTNAME=mysql
-      - MYSQL_USER=bes
+      - MYSQL_USER=root
       - MYSQL_PASSWORD=123456789
       - MYSQL_ROOT_PASSWORD=123456789
-      - MYSQL_DATABASE=snows
+      - MYSQL_DATABASE=snows_bes
       - MYSQL_PORT=3307
 
     volumes:
@@ -48,10 +48,10 @@ services:
       - "3307:3307"
     environment:
       - MYSQL_HOSTNAME=127.0.0.1
-      - MYSQL_USER=bes
+      - MYSQL_USER=root
       - MYSQL_PASSWORD=123456789
       - MYSQL_ROOT_PASSWORD=123456789
-      - MYSQL_DATABASE=snows
+      - MYSQL_DATABASE=snows_bes
       - MYSQL_PORT=3307
       - MYSQL_TCP_PORT=3307
       - MYSQL_UNIX_PORT=3307

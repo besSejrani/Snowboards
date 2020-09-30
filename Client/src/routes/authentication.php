@@ -16,13 +16,15 @@ $router->map(
     '/register',
     function () {
 
+        $firstname = $_POST['firstname'];
+        $lastname = $_POST['lastname'];
         $username = $_POST['username'];
         $email = $_POST['email'];
         $password = $_POST['password'];
         $confirmPassword = $_POST['confirmPassword'];
 
         require_once(dirname(__DIR__)  . DIRECTORY_SEPARATOR . "class" . DIRECTORY_SEPARATOR . "User.php");
-        User::Register($username, $email, $password, $confirmPassword);
+        User::Register($firstname, $lastname, $username, $email, $password, $confirmPassword);
     },
     "postRegister"
 );
