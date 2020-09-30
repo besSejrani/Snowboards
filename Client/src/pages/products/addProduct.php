@@ -5,6 +5,13 @@ $title = "Snowboards | Add Snowboard";
 
 <div class="d-flex justify-content-center align-items-center vh-100">
     <form class="form container " method="POST" action="addSnowActions">
+
+        <!--    <div class="custom-file mb-3">
+            <input type="file" class="custom-file-input" id="validatedCustomFile">
+            <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+            <div class="invalid-feedback">Example invalid custom file feedback</div>
+        </div> -->
+
         <div class=" form-group">
             <label for="coupon">Snow coupon</label>
             <input type="text" class="form-control" id="coupon" name="coupon">

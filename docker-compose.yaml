@@ -74,6 +74,7 @@ services:
 
   grafana:
     image: grafana/grafana
+    hostname: grafana
     ports:
       - "4000:3000"
     user: root
