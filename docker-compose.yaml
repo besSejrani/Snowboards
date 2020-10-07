@@ -10,7 +10,7 @@ services:
     networks:
       - backend
     ports:
-      - "8080:80"
+      - "8000:80"
       - "8443:443"
     volumes:
       - ./Client:/var/www/html:delegated

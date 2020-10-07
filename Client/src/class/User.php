@@ -21,7 +21,7 @@ class User
             $db = new DB();
             $db->executeQuery($sql);
 
-            header("location: http://localhost:8080/");
+            header("location: http://localhost:8000/");
         } catch (Exception $e) {
             throw new Error($e);
         }
@@ -45,9 +45,9 @@ class User
 
             if ($verify) {
                 $_SESSION['role'] = "admin";
-                header("location: http://localhost:8080/");
+                header("location: http://localhost:8000/");
             } else {
-                header("Location: http://localhost:8080/login");
+                header("Location: http://localhost:8000/login");
             }
         } catch (Exception $e) {
             throw new Error($e);
@@ -57,6 +57,6 @@ class User
     public static function Logout()
     {
         session_destroy();
-        header("Location: http://localhost:8080/");
+        header("Location: http://localhost:8000/");
     }
 }

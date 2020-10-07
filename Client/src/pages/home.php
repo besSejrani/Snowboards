@@ -13,7 +13,7 @@ $title = "Snowboards | Home";
     </ol>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="/assets/1.jpg" alt="#">
+            <img src="/assets/Hero.jpg" alt="#">
         </div>
         <div class="carousel-item">
             <img src="/assets/2.jpg" alt="#">

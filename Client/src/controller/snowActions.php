@@ -15,7 +15,7 @@ class SnowActions
 
         $db = new Snow();
         $db->addSnow($coupon, $brand, $boots, $type, $available);
-        header('Location: http://localhost:8080/products');
+        header('Location: http://localhost:8000/products');
     }
 
     public function deleteData()
@@ -28,7 +28,7 @@ class SnowActions
         $db = new Snow();
         $db->deleteSnow($product);
 
-        header('Location: http://localhost:8080/products');
+        header('Location: http://localhost:8000/products');
     }
 
     public static function UpdateData()
