@@ -8,20 +8,16 @@ class DB
 {
     private static $connection = null;
 
-
-    /**
-     * @return [type]
-     */
     public function connect()
     {
         if (self::$connection == null) {
             try {
 
-                $port = $_ENV['MYSQL_PORT'];
-                $hostName = $_ENV['MYSQL_HOSTNAME'];
-                $databaseName = $_ENV['MYSQL_DATABASE'];
-                $userName = $_ENV['MYSQL_USER'];
-                $userPassword = $_ENV['MYSQL_PASSWORD'];
+                $port = getenv('MYSQL_PORT');
+                $hostName = getenv('MYSQL_HOSTNAME');
+                $databaseName = getenv('MYSQL_DATABASE');
+                $userName = getenv('MYSQL_USER');
+                $userPassword = getenv('MYSQL_PASSWORD');
 
                 return new PDO('mysql:host=' . $hostName . ';dbname=' . $databaseName . ';port=' . $port, $userName, $userPassword);
             } catch (PDOException $exception) {
@@ -31,11 +27,7 @@ class DB
         return self::$connection;
     }
 
-    /**
-     * @param mixed $query
-     * 
-     * @return [type]
-     */
+
     public function executeQuery($query)
     {
         $queryResult = null;
@@ -51,9 +43,7 @@ class DB
         return $queryResult;
     }
 
-    /**
-     * @return [type]
-     */
+
     public static function Disconnect()
     {
         self::$connection = null;

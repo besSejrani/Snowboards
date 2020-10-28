@@ -76,7 +76,7 @@ services:
     image: grafana/grafana
     hostname: grafana
     ports:
-      - "4000:3000"
+      - "3500:3000"
     user: root
     environment:
       - TEST=bal

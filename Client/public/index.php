@@ -1,6 +1,5 @@
 <?php
 require_once(dirname(__DIR__) . DIRECTORY_SEPARATOR . "vendor" . DIRECTORY_SEPARATOR . "autoload.php");
-
 // ========================================================================================================
 
 // Meta tags SEO
@@ -22,9 +21,7 @@ $content = null;
 $js = null;
 
 // ========================================================================================================
-
 session_start();
-
 $router = new AltoRouter();
 
 // Routes Available
