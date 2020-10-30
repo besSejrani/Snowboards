@@ -1,6 +1,10 @@
 <?php
-require_once(dirname(__DIR__, 2) . DIRECTORY_SEPARATOR . "vendor" . DIRECTORY_SEPARATOR . "autoload.php");
-require_once(dirname(__DIR__) . DIRECTORY_SEPARATOR . "class" . DIRECTORY_SEPARATOR . "Snow.php");
+
+namespace App\Controller;
+
+require_once(dirname(__DIR__, 3) . "/vendor/autoload.php");
+
+use App\Repository\Snow;
 
 class SnowActions
 {

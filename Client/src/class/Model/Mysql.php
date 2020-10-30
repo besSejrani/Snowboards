@@ -1,8 +1,12 @@
 <?php
 
+namespace App\Model;
+
 require_once(dirname(__DIR__, 2) . DIRECTORY_SEPARATOR . "vendor" . DIRECTORY_SEPARATOR . "autoload.php");
-$dotenv = Dotenv\Dotenv::createImmutable("./../");
+$dotenv = \Dotenv\Dotenv::createImmutable("./../");
 $dotenv->load();
+
+
 
 class DB
 {
@@ -19,8 +23,8 @@ class DB
                 $userName = getenv('MYSQL_USER');
                 $userPassword = getenv('MYSQL_PASSWORD');
 
-                return new PDO('mysql:host=' . $hostName . ';dbname=' . $databaseName . ';port=' . $port, $userName, $userPassword);
-            } catch (PDOException $exception) {
+                return new \PDO('mysql:host=' . $hostName . ';dbname=' . $databaseName . ';port=' . $port, $userName, $userPassword);
+            } catch (\PDOException $exception) {
                 echo 'Connection failed: ' . $exception->getMessage();
             }
         }

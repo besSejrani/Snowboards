@@ -6,11 +6,6 @@ $title = "Snowboards | Add Snowboard";
 <div class="d-flex justify-content-center align-items-center vh-100">
     <form class="form container " method="POST" action="addSnowActions">
 
-        <!--    <div class="custom-file mb-3">
-            <input type="file" class="custom-file-input" id="validatedCustomFile">
-            <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
-            <div class="invalid-feedback">Example invalid custom file feedback</div>
-        </div> -->
 
         <div class=" form-group">
             <label for="coupon">Snow coupon</label>
@@ -43,4 +38,4 @@ $title = "Snowboards | Add Snowboard";
 <?php
 $js = '';
 $content = ob_get_clean();
-require(dirname(__DIR__, 2)  . DIRECTORY_SEPARATOR . "layout" . DIRECTORY_SEPARATOR . "layout.php");
+require(dirname(__DIR__, 2) . "/layout/layout.php");

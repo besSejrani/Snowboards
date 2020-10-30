@@ -1,8 +1,11 @@
 <?php
 
-require_once(dirname(__DIR__, 3) . DIRECTORY_SEPARATOR . "vendor" . DIRECTORY_SEPARATOR . "autoload.php");
-require_once(dirname(__DIR__, 2) . DIRECTORY_SEPARATOR . "class" . DIRECTORY_SEPARATOR . "Snow.php");
-require_once(dirname(__DIR__, 2) . DIRECTORY_SEPARATOR . "class" . DIRECTORY_SEPARATOR . "Category.php");
+require_once(dirname(__DIR__, 3) . "/vendor/autoload.php");
+
+use App\Repository\Snow;
+use App\Repository\Category;
+use App\Model\DB;
+
 ob_start();
 $title = "Snowboards | Products";
 ?>
@@ -45,6 +48,10 @@ $title = "Snowboards | Products";
     <?php
     $db = new Snow();
     $snows = $db->getSnows();
+
+    var_dump($snows);
+
+    dump($snows);
 
     echo <<<EOT
         <table class="table table-dark container mb-5">
@@ -113,4 +120,4 @@ $js = '
 </script>
 ';
 $content = ob_get_clean();
-require(dirname(__DIR__, 2)  . DIRECTORY_SEPARATOR . "layout" . DIRECTORY_SEPARATOR . "layout.php");
+require(dirname(__DIR__, 2) . "/layout/layout.php");

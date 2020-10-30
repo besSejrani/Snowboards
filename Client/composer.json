@@ -6,5 +6,10 @@
   "require-dev": {
     "filp/whoops": "^2.7",
     "symfony/var-dumper": "^5.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/class"
+    }
   }
 }

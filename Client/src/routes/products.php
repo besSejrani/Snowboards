@@ -4,7 +4,7 @@ $router->map(
     'GET',
     '/products',
     function () {
-        require __DIR__ . "/../pages/products/products.php";
+        require (dirname(__DIR__, 2)) . "/src/pages/products/products.php";
     },
     "products"
 );

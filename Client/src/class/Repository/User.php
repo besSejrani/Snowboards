@@ -1,6 +1,8 @@
 <?php
 
-require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . "model" . DIRECTORY_SEPARATOR . "db.php";
+namespace App\Repository;
+
+use App\Model\DB;
 
 class User
 {

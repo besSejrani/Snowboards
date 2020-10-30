@@ -1,5 +1,8 @@
 <?php
-require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . "model" . DIRECTORY_SEPARATOR . "db.php";
+
+namespace App\Repository;
+
+use App\Model\DB;
 
 class Category
 {
@@ -8,6 +11,7 @@ class Category
     {
         $sql = "SELECT id, name FROM snows_bes.categorie;";
         $db = new DB();
+        dump($db);
         return $db->executeQuery($sql);
     }
 }

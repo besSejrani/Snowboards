@@ -13,7 +13,6 @@
     <title><?= $title ?? "Snowboard" ?></title>
 </head>
 
-
 <nav class="navbar bg-white fixed-top d-flex justify-content-between" id="nav">
     <a href="/" class="navbar-brand"><img src="/assets/logo.svg" alt=""></a>
     <div class="d-flex justify-content-between ">

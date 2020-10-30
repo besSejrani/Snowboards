@@ -1,6 +1,8 @@
 <?php
 
-require_once(dirname(__DIR__, 2) . DIRECTORY_SEPARATOR . "controller" . DIRECTORY_SEPARATOR . "snowActions.php");
+require_once(dirname(__DIR__, 3) . "/vendor/autoload.php");
+
+use App\Controller\SnowActions;
 
 $snow = SnowActions::UpdateData();
 
@@ -19,7 +21,8 @@ $title = "Snowboards | Update Snowboard";
 
     <div class="container px-0 d-flex">
         <div class="col-xl-6">
-            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.10lC_4Wwh6v2Bw0ktcfS1AHaEK%26pid%3DApi&f=1" alt="">
+            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.10lC_4Wwh6v2Bw0ktcfS1AHaEK%26pid%3DApi&f=1"
+                alt="">
         </div>
 
         <div class="col-xl-6">
@@ -48,7 +51,8 @@ $title = "Snowboards | Update Snowboard";
 
                 <div class="form-group">
                     <label for="availability">Availability</label>
-                    <input type="text" class="form-control" id="availability" name="availability" value=<?= $disponibilite ?>>
+                    <input type="text" class="form-control" id="availability" name="availability"
+                        value=<?= $disponibilite ?>>
                 </div>
 
                 <div class="d-flex justify-content-end my-5">
@@ -66,4 +70,4 @@ $title = "Snowboards | Update Snowboard";
 <?php
 $js = '';
 $content = ob_get_clean();
-require(dirname(__DIR__, 2)  . DIRECTORY_SEPARATOR . "layout" . DIRECTORY_SEPARATOR . "layout.php");
+require(dirname(__DIR__, 2) . "/layout/layout.php");
