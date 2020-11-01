@@ -1,6 +1,17 @@
+.carousel-item > img {
+  width: 100%;
+}
+
 .hidden {
   visibility: hidden;
   transition: 0.5s;
   opacity: 0;
 }
-#map{ height: 100% }
+
+#map {
+  height: 100%;
+}
+
+#nav {
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 4px;
+}

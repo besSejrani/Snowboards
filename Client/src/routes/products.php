@@ -1,5 +1,9 @@
 <?php
 
+require (dirname(__DIR__,2) . "/vendor/autoload.php");
+
+use App\Controller\Product\Product;
+
 $router->map(
     'GET',
     '/products',
@@ -21,17 +25,17 @@ $router->map(
 );
 
 // ========================================================================================================
-
+/*
 $router->map(
     'POST',
-    '/addSnowActions',
+    '/product',
     function () {
-        require __DIR__ . "/../controller/snowActions.php";
-        $action = new SnowActions();
-        $action->addData();
+        $action = new Product();
+        $action->addProduct();
     },
     "addSnowActions"
 );
+*/
 // ========================================================================================================
 
 $router->map(
@@ -50,8 +54,8 @@ $router->map(
     '/deleteSnowActions/[a:action]',
     function () {
         require __DIR__ . "/../controller/snowActions.php";
-        $action = new SnowActions();
-        $action->deleteData();
+        $action = new Product();
+        $action->deleteProduct();
     },
     "deleteSnowActions"
 );

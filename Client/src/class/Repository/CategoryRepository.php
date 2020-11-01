@@ -2,16 +2,17 @@
 
 namespace App\Repository;
 
-use App\Model\DB;
+require (dirname(__DIR__,3) . "/vendor/autoload.php");
 
-class Category
+use App\Model\Mysql;
+
+
+class CategoryRepository
 {
-
     public static function GetCategories()
     {
         $sql = "SELECT id, name FROM snows_bes.categorie;";
-        $db = new DB();
-        dump($db);
+        $db = new Mysql();
         return $db->executeQuery($sql);
     }
 }

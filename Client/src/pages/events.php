@@ -1,5 +1,5 @@
 <?php
-ob_start();
+
 $title = "Snowboards | Events";
 ?>
 <div class="d-flex container flex-wrap my-5">
@@ -111,5 +111,3 @@ $title = "Snowboards | Events";
 
 <?php
 $js = '';
-$content = ob_get_clean();
-require(dirname(__DIR__) . "/layout/layout.php");

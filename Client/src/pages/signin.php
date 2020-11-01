@@ -1,5 +1,5 @@
 <?php
-ob_start();
+
 $title = "Snowboards | Login";
 
 use App\Form\Form;
@@ -8,7 +8,7 @@ use App\Form\Form;
 <div class="container vh-100" style="margin-top: 100px;">
     <?php
     $form = new Form();
-    $form->startForm("/login", "POST")
+    $form->startForm("/api/users/signin", "POST")
         ->myInput("text", "Email", "myEmail", null)
         ->myInput("password", "Password", "myPassword", null)
         ->mySubmit("myButton")
@@ -17,13 +17,10 @@ use App\Form\Form;
 
     <div class="d-flex my-5">
         <h6>Not a member ? </h6>
-        <a href="/register"> Register</a>
+        <a href="/signup"> Signup</a>
     </div>
 </div>
 
 <?php
 
-
 $js = '';
-$content = ob_get_clean();
-require(dirname(__DIR__) . "/layout/layout.php");

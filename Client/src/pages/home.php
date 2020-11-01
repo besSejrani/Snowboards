@@ -1,7 +1,5 @@
 <?php
 
-
-ob_start();
 $title = "Snowboards | Home";
 ?>
 
@@ -99,6 +97,3 @@ $js = '
     integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
 </script>
 ';
-
-$content = ob_get_clean();
-require(dirname(__DIR__) . "/layout/layout.php");

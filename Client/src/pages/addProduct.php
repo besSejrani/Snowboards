@@ -1,10 +1,11 @@
 <?php
-ob_start();
+
 $title = "Snowboards | Add Snowboard";
+require(dirname(__DIR__,2) . "/vendor/autoload.php");
 ?>
 
 <div class="d-flex justify-content-center align-items-center vh-100">
-    <form class="form container " method="POST" action="addSnowActions">
+    <form class="form container " method="POST" action="/api/products/addProduct">
 
 
         <div class=" form-group">
@@ -37,5 +38,3 @@ $title = "Snowboards | Add Snowboard";
 
 <?php
 $js = '';
-$content = ob_get_clean();
-require(dirname(__DIR__, 2) . "/layout/layout.php");

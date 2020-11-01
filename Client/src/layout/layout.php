@@ -26,12 +26,12 @@
             <a class="nav-link active p-2" href="/contact">Contact <span class="sr-only"></span></a>
 
             <?php if (!isset($_SESSION['role'])) : ?>
-            <a class="nav-link active p-2" href="/login">Login<span class="sr-only"></span></a>
+            <a class="nav-link active p-2" href="/signin">Signin<span class="sr-only"></span></a>
             <?php else : ?>
             <a class="nav-link active p-2" href="/products">Products<span class="sr-only"></span></a>
             <a class="nav-link active p-2" href="http://localhost:4000" target="_blank">Dashboard <span
                     class="sr-only"></span></a>
-            <a class="nav-link active p-2" href="/logout">Logout<span class="sr-only"></span></a>
+            <a class="nav-link active p-2" href="/api/users/signout">Signout<span class="sr-only"></span></a>
             <?php endif; ?>
 
         </div>

@@ -2,7 +2,7 @@
 
 require_once(dirname(__DIR__, 3) . "/vendor/autoload.php");
 
-use App\Controller\SnowActions;
+//use App\Controller\;
 
 $snow = SnowActions::UpdateData();
 
@@ -12,7 +12,6 @@ $boots = $snow[0]['Boots'];
 $type = $snow[0]['Type'];
 $disponibilite = $snow[0]['Disponibilite'];
 
-ob_start();
 $title = "Snowboards | Update Snowboard";
 ?>
 
@@ -69,5 +68,3 @@ $title = "Snowboards | Update Snowboard";
 
 <?php
 $js = '';
-$content = ob_get_clean();
-require(dirname(__DIR__, 2) . "/layout/layout.php");

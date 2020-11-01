@@ -1,12 +1,10 @@
 <?php
 
-require_once(dirname(__DIR__, 3) . "/vendor/autoload.php");
+require_once(dirname(__DIR__, 2) . "/vendor/autoload.php");
 
-use App\Repository\Snow;
-use App\Repository\Category;
-use App\Model\DB;
+use App\Repository\CategoryRepository;
+use App\Repository\SnowRepository;
 
-ob_start();
 $title = "Snowboards | Products";
 ?>
 
@@ -25,7 +23,7 @@ $title = "Snowboards | Products";
                     <select class="custom-select" id="inputGroupSelect01">
 
                         <?php
-                        $categories = Category::getCategories();
+                        $categories = CategoryRepository::GetCategories();
 
                         echo <<< EOT
                             <option selected>All</option>
@@ -46,12 +44,9 @@ $title = "Snowboards | Products";
     </div>
 
     <?php
-    $db = new Snow();
+    $db = new SnowRepository();
     $snows = $db->getSnows();
 
-    var_dump($snows);
-
-    dump($snows);
 
     echo <<<EOT
         <table class="table table-dark container mb-5">
@@ -119,5 +114,3 @@ $js = '
     integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
 </script>
 ';
-$content = ob_get_clean();
-require(dirname(__DIR__, 2) . "/layout/layout.php");

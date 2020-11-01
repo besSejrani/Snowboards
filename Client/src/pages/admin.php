@@ -1,5 +1,4 @@
 <?php
-ob_start();
 $title = "Snowboards | Admin";
 ?>
 
@@ -8,6 +7,3 @@ $title = "Snowboards | Admin";
 </div>
 
 <?php
-
-$content = ob_get_clean();
-require(dirname(__DIR__) . "/layout/layout.php");

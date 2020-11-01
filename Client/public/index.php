@@ -1,5 +1,11 @@
 <?php
-require_once(dirname(__DIR__) . DIRECTORY_SEPARATOR . "vendor" . DIRECTORY_SEPARATOR . "autoload.php");
+
+require (dirname(__DIR__) . "/vendor/autoload.php");
+
+use App\Routes\Router;
+use App\Controller\Product;
+use App\Controller\UserController;
+
 // ========================================================================================================
 
 // Meta tags SEO
@@ -16,29 +22,28 @@ $description = null;
 
 // Language
 
-// Layout
-$content = null;
-$js = null;
+
 
 // ========================================================================================================
 session_start();
-$router = new AltoRouter();
 
-// Routes Available
-require_once(dirname(__DIR__)  . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARATOR . "routes" . DIRECTORY_SEPARATOR . "pages.php");
-require_once(dirname(__DIR__)  . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARATOR . "routes" . DIRECTORY_SEPARATOR . "events.php");
-require_once(dirname(__DIR__)  . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARATOR . "routes" . DIRECTORY_SEPARATOR . "products.php");
-require_once(dirname(__DIR__)  . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARATOR . "routes" . DIRECTORY_SEPARATOR . "admin.php");
-require_once(dirname(__DIR__)  . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARATOR . "routes" . DIRECTORY_SEPARATOR . "authentication.php");
-require_once(dirname(__DIR__)  . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARATOR . "routes" . DIRECTORY_SEPARATOR . "authorization.php");
+$router = new Router("");
+$basePath = dirname(__DIR__) .  "/src/pages/";
 
+$router->get("/", $basePath . "home.php")
+        ->get("/events", $basePath . "events.php")
+        ->get("/contact", $basePath . "contact.php")
 
+        ->get("/admin",$basePath . "admin.php")
+        ->get("/products",$basePath . "products.php")
+        ->get("/addProduct", $basePath . "addProduct.php")
+        ->post("/api/products/addProduct",function(){ $action = new Product();$action->addProduct();})
 
-$match = $router->match();
+        ->get("/signup",$basePath . "signup.php")
+        ->post("/api/users/signup",function(){ UserController::Signup();})
+        
+        ->get("/signin",$basePath . "signin.php")
+        ->post("/api/users/signin",function(){ UserController::Signin();})
 
-if (is_array($match) && is_callable($match['target'])) {
-    call_user_func_array($match['target'], $match['params']);
-} else {
-    // No route was matched
-    require_once(dirname(__DIR__) . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARATOR . "pages" . DIRECTORY_SEPARATOR . "404.php");
-}
+        ->get("/api/users/signout",function(){ UserController::Signout();})
+        ->run();
