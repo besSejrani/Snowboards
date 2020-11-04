@@ -9,8 +9,8 @@ use App\Form\Form;
     <?php
     $form = new Form();
     $form->startForm("/api/users/signin", "POST")
-        ->myInput("text", "Email", "myEmail", null)
-        ->myInput("password", "Password", "myPassword", null)
+        ->myInput("text", "Email", "myEmail")
+        ->myInput("password", "Password", "myPassword")
         ->mySubmit("myButton")
         ->endForm();
     ?>

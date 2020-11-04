@@ -23,26 +23,24 @@ $description = null;
 // Language
 
 
-
-// ========================================================================================================
 session_start();
 
-$router = new Router("");
 $basePath = dirname(__DIR__) .  "/src/pages/";
+$router = new Router($basePath);
 
-$router->get("/", $basePath . "home.php")
-        ->get("/events", $basePath . "events.php")
-        ->get("/contact", $basePath . "contact.php")
+$router->get("/", "home.php")
+        ->get("/events", "events.php")
+        ->get("/contact", "contact.php")
+        ->get("/admin", "admin.php")
+        ->get("/products", "products.php")
 
-        ->get("/admin",$basePath . "admin.php")
-        ->get("/products",$basePath . "products.php")
-        ->get("/addProduct", $basePath . "addProduct.php")
+        ->get("/addProduct", "addProduct.php")
         ->post("/api/products/addProduct",function(){ $action = new Product();$action->addProduct();})
 
-        ->get("/signup",$basePath . "signup.php")
+        ->get("/signup", "signup.php")
         ->post("/api/users/signup",function(){ UserController::Signup();})
         
-        ->get("/signin",$basePath . "signin.php")
+        ->get("/signin", "signin.php")
         ->post("/api/users/signin",function(){ UserController::Signin();})
 
         ->get("/api/users/signout",function(){ UserController::Signout();})

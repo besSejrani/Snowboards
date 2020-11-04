@@ -1,7 +1,5 @@
 <?php
 
-
-
 $title = "Snowboards | 404";
 ?>
 
