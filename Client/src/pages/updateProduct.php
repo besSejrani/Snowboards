@@ -1,70 +1,39 @@
 <?php
 
-require_once(dirname(__DIR__, 3) . "/vendor/autoload.php");
 
-//use App\Controller\;
+use App\Form\Form;
+use App\Repository\ProductRepository;
+$uri = $_SERVER['REQUEST_URI'];
+$id = explode('/', $uri)[4];
 
-$snow = SnowActions::UpdateData();
+$product = new ProductRepository();
+$productValue = $product->GetProductById($id);
 
-$idsnow = $snow[0]['idSnow'];
-$marque = $snow[0]['Marque'];
-$boots = $snow[0]['Boots'];
-$type = $snow[0]['Type'];
-$disponibilite = $snow[0]['Disponibilite'];
+$productName = $productValue[0]['name'];
+$productDescription = $productValue[0]['description'];
+$productPrice = $productValue[0]['price'];
+$ProductSKU = $productValue[0]['sku'];
+$ProductBrand = $productValue[0]['brand'];
 
-$title = "Snowboards | Update Snowboard";
+
 ?>
 
+<div class="d-flex ">
 
-<div class="d-flex flex-column justify-content-center align-items-center vh-100">
-
-    <div class="container px-0 d-flex">
-        <div class="col-xl-6">
-            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.10lC_4Wwh6v2Bw0ktcfS1AHaEK%26pid%3DApi&f=1"
-                alt="">
-        </div>
-
-        <div class="col-xl-6">
-
-            <form class="form" method="POST" action="snow_update_data">
-
-                <div class="form-group">
-                    <label for="id">ID</label>
-                    <input type="text" class="form-control" id="id" name="id" value=<?= $idsnow ?>>
-                </div>
-
-                <div class="form-group">
-                    <label for="brand">Brand</label>
-                    <input type="text" class="form-control" id="brand" name="brand" value=<?= $marque ?>>
-                </div>
-
-                <div class="form-group">
-                    <label for="boots">Boots</label>
-                    <input type="text" class="form-control" id="boots" name="boots" value=<?= $boots ?>>
-                </div>
-
-                <div class="form-group">
-                    <label for="type">Type</label>
-                    <input type="text" class="form-control" id="type" name="type" value=<?= $type ?>>
-                </div>
-
-                <div class="form-group">
-                    <label for="availability">Availability</label>
-                    <input type="text" class="form-control" id="availability" name="availability"
-                        value=<?= $disponibilite ?>>
-                </div>
-
-                <div class="d-flex justify-content-end my-5">
-                    <button type="submit" class="btn btn-primary">Edit</button>
-                </div>
-
-            </form>
-        </div>
+    <div class="container vh-100" style="margin-top: 100px;">
+        <?php
+    $form = new Form();
+    $form->startForm("/api/products/updateProduct", "POST")
+        ->myInput("text", "Name", "name", null, $productName)
+        ->myInput("text", "Description", "description", null, $productDescription)
+        ->myInput("number", "Price", "price", null, $productPrice)
+        ->myInput("text", "SKU", "sku", null, $ProductSKU)
+        ->myInput("text", "Brand", "brand", null, $ProductBrand)
+        ->mySubmit("myButton")
+        ->endForm();
+    ?>
 
     </div>
-</div>
 
-
-
-<?php
+    <?php
 $js = '';

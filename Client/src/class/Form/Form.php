@@ -60,11 +60,11 @@ class Form
      * @return object
      * @description Returns an input
      */
-    public function myInput(string $type, string $name, string $id, ?string $placeholder = null): object
+    public function myInput(string $type, string $name, string $id, ?string $placeholder = null, $value=null): object
     {
         echo "<div class='form-group'>
                 <label for='$id'>$name</label>
-                <input type=$type class='form-control' name='$name' id='$id' placeholder='$placeholder' required>
+                <input type=$type class='form-control' name='$name' id='$id' placeholder='$placeholder' value='$value' required>
               </div>";
         return $this;
     }

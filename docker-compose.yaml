@@ -46,6 +46,8 @@ services:
       - backend
     ports:
       - "3307:3307"
+    security_opt:
+      - seccomp:unconfined
     environment:
       - MYSQL_HOSTNAME=127.0.0.1
       - MYSQL_USER=root

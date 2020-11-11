@@ -3,7 +3,7 @@
 require_once(dirname(__DIR__, 2) . "/vendor/autoload.php");
 
 use App\Repository\CategoryRepository;
-use App\Repository\SnowRepository;
+use App\Repository\ProductRepository;
 
 $title = "Snowboards | Products";
 ?>
@@ -44,8 +44,9 @@ $title = "Snowboards | Products";
     </div>
 
     <?php
-    $db = new SnowRepository();
-    $snows = $db->getSnows();
+
+    $db = new ProductRepository();
+    $snows = $db->getProducts();
 
 
     echo <<<EOT
@@ -53,10 +54,11 @@ $title = "Snowboards | Products";
         <thead>
         <tr>
         <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
         <th>Brand</th>
-        <th>Boots</th>
-        <th>Type</th>
-        <th>Available</th>
+        <th>SKU</th>
+        <th>Price</th>
         </tr>
         </thead>
         <tbody>
@@ -67,13 +69,14 @@ $title = "Snowboards | Products";
     foreach ($snows as $snow) {
         echo <<<EOT
             <tr>
-            <td>$snow[idSnow]</td>
-            <td>$snow[Marque]</td>
-            <td>$snow[Boots]</td>
-            <td>$snow[Type]</td>
-            <td>$snow[Disponibilite]</td>
-            <td><a href=deleteSnowActions/$snow[idSnow]>Détruire</a></td>
-            <td><a href=updateProduct/$snow[idSnow]>Modifier</a></td>
+            <td>$snow[id]</td>
+            <td>$snow[name]</td>
+            <td>$snow[description]</td>
+            <td>$snow[brand]</td>
+            <td>$snow[sku]</td>
+            <td>$snow[price]</td>
+            <td><a href=/api/products/deleteProduct/$snow[id]>Détruire</a></td>
+            <td><a href=/api/products/updateProduct/$snow[id]>Modifier</a></td>
             </tr>
         EOT;
     }
