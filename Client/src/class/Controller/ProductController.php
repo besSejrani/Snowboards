@@ -8,10 +8,11 @@ use Error;
 
 class ProductController{
 
+    static string $headerLocation ='Location: http://localhost:8000/products';
 
     public static function AddProduct()
     {
-
+        // Get POST values
         $name = $_POST['Name'];
         $description = $_POST['Description'];
         $price = $_POST['Price'];
@@ -21,26 +22,21 @@ class ProductController{
         try{
             $product = new ProductRepository();
             $product->AddProduct($name, $description, $price, $sku, $brand);
-            header('Location: http://localhost:8000/products');
-
+            header(ProductController::$headerLocation);
         }catch(Error $e){
             echo $e->getMessage();
         }
-
-       
     }
 
-    public static function DeleteProduct()
+    public static function GetProductId()
     {
-        try{
         // Get URI parameter
         $uri = $_SERVER['REQUEST_URI'];
-        $id = explode('/', $uri)[4];
-
-        $product = new ProductRepository();
-        $product->deleteProduct($id);
-
-        header('Location: http://localhost:8000/products');
+        $product = explode('/', $uri)[4];
+        
+        try{
+            $db = new ProductRepository();
+            return $db->GetProductById($product);
         }catch(Error $e){
             echo $e->getMessage();
         }
@@ -48,10 +44,39 @@ class ProductController{
 
     public static function UpdateProduct()
     {
-        $uri = $_SERVER['REQUEST_URI'];
-        $product = explode('/', $uri)[4];
+        // Get POST values
+        $name = $_POST['Name'];
+        $description = $_POST['Description'];
+        $price = $_POST['Price'];
+        $sku = $_POST['SKU'];
+        $brand = $_POST['Brand'];
 
-        $db = new ProductRepository();
-        return $db->GetProductById($product);
+        // Get URI parameter
+        $uri = $_SERVER['REQUEST_URI'];
+        $id = explode('/', $uri)[4];
+        
+        try{   
+            $db = new ProductRepository();
+            $db->updateProduct($id, $name, $description, $price, $sku, $brand);
+            header(ProductController::$headerLocation);
+        }catch(Error $e){
+            echo $e->getMessage();
+        }
+    }
+
+    public static function DeleteProduct()
+    {
+        // Get URI parameter
+        $uri = $_SERVER['REQUEST_URI'];
+        $id = explode('/', $uri)[4];
+        
+        try{
+        $product = new ProductRepository();
+        $product->deleteProduct($id);
+
+        header(ProductController::$headerLocation);
+        }catch(Error $e){
+            echo $e->getMessage();
+        }
     }
 }

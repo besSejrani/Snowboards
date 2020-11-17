@@ -1,5 +1,10 @@
 <?php
-$title = "Snowboards | Admin";
+
+$redis2 = new Redis();
+$redis2->connect('redis');
+//$redis2->set('foo', 'hallo');
+
+$title = "Snowboards | Contact";
 ?>
 
 <div class="vh-100 d-flex justify-content-center align-items-center">
@@ -7,10 +12,9 @@ $title = "Snowboards | Admin";
 </div>
 
 
-
+<?php
+echo $redis2->get('foo');
+?>
 <?php
 
-$js = '<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-crossorigin=""></script>
-';
+$js = '';

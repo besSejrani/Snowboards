@@ -12,6 +12,11 @@
   height: 100%;
 }
 
+#navContainer {
+  position: relative;
+  height: 83px;
+}
+
 #nav {
   box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 4px;
 }

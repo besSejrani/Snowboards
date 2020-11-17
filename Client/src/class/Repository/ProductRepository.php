@@ -27,11 +27,11 @@ class ProductRepository
         $db->executeQuery($sql);
     }
 
-    public function updateProduct()
+    public function updateProduct(string $id, string $name, string $description, int $price, string $sku, string $brand)
     {
-        // $sql = "DELETE FROM product where idSnow=$_GET[idSnow]";
-        // $result = $this->executeQuery($sql);
-        // return $result;
+        $sql = "UPDATE snows_bes.product SET name='$name', description='$description', price='$price', sku='$sku', brand='$brand' WHERE id='$id'";
+        $db = new Mysql();
+        $db->executeQuery($sql);
     }
 
     public function deleteProduct(string $id)

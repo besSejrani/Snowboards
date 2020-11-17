@@ -34,14 +34,15 @@ $router->get("/", "home.php")
         ->get("/admin", "admin.php")
 
 
-        ->get("/products", "products.php")
-        ->get("/api/products/deleteProduct/[i:id]",function(){ ProductController::DeleteProduct();})
+        ->get("/products", "products/products.php")
+        ->get("/api/products/deleteProduct/[a:action]",function(){ ProductController::DeleteProduct();})
 
-        ->get("/addProduct", "addProduct.php")
+        ->get("/addProduct", "products/addProduct.php")
         ->post("/api/products/addProduct",function(){ ProductController::AddProduct();})
 
-        ->get("/api/products/updateProduct/[i:id]", "updateProduct.php")
-        ->post("/api/products/updateProduct/[i:id]",function(){ ProductController::UpdateProduct();})
+        ->get("/api/products/update/[a:action]", "products/updateProduct.php")
+        ->post("/api/products/get/[a:action]",function(){ ProductController::GetProductId();})
+        ->post("/api/products/update/[a:action]",function(){ ProductController::UpdateProduct();})
 
         ->get("/signup", "signup.php")
         ->post("/api/users/signup",function(){ UserController::Signup();})

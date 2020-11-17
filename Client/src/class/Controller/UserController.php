@@ -22,8 +22,6 @@ class UserController{
             if ($password != $confirmPassword) {
                 throw new RequestValidationError("Password doesn't match confirmPassword");               
             }
-
-            //dump($_POST);
             
             $hashOptions = [
                 'cost' => 10,

@@ -2,7 +2,7 @@
 
 $title = "Snowboards | Events";
 ?>
-<div class="d-flex container flex-wrap my-5">
+<div class="d-flex container flex-wrap">
 
     <div class="col-xl-4">
         <div class="card my-4">

@@ -96,11 +96,12 @@ class Form
      * @return object
      * @description Returns a drop down
      */
-    public function myDropDown(string $name, string $id, ...$options): object
+    public function myDropDown(string $name, string $id, string $value=null, ...$options): object
     {
         echo "<div class='form-group'>
                 <label for='$id'>$name</label>
-                <select class='form-control' id='$id' name='$name'>";
+                <select class='form-control' id='$id' name='$name'>
+                <option selected>$value</option>";
 
         foreach ($options[0] as $option) {
             echo "<option value='$option[1]'>";
@@ -108,7 +109,8 @@ class Form
             echo "</option>";
         }
 
-        echo "</select>
+        echo "
+            </select>
                 </div>";
 
         return $this;

@@ -14,25 +14,24 @@ $productDescription = $productValue[0]['description'];
 $productPrice = $productValue[0]['price'];
 $ProductSKU = $productValue[0]['sku'];
 $ProductBrand = $productValue[0]['brand'];
-
-
 ?>
 
-<div class="d-flex ">
+<div class="d-flex flex-column">
 
-    <div class="container vh-100" style="margin-top: 100px;">
-        <?php
-    $form = new Form();
-    $form->startForm("/api/products/updateProduct", "POST")
+    <div class="d-flex justify-content-center align-items-center vh-100">
+        <div class="w-50">
+            <?php
+        $form = new Form();
+        $form->startForm("/api/products/update/$id", "POST")
         ->myInput("text", "Name", "name", null, $productName)
         ->myInput("text", "Description", "description", null, $productDescription)
         ->myInput("number", "Price", "price", null, $productPrice)
         ->myInput("text", "SKU", "sku", null, $ProductSKU)
-        ->myInput("text", "Brand", "brand", null, $ProductBrand)
+        ->myDropDown("Brand", "brand", $ProductBrand, "suprem", "addidas")
         ->mySubmit("myButton")
         ->endForm();
-    ?>
-
+        ?>
+        </div>
     </div>
 
     <?php
