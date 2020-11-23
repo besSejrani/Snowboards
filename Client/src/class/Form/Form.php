@@ -14,7 +14,7 @@ class Form
      * @return object
      * @description Returns the beginning of a form, specifying its action and method
      */
-    public function startForm(string $action, string $method, ?string $enctype = null): object
+    public function startForm( string $action, string $method, ?string $enctype = null): object
     {
         $options = $enctype ? "enctype='$enctype'" : '';
         echo "<form action='$action' method='$method' $options>";
@@ -24,12 +24,13 @@ class Form
     /**
      * @name endForm
      *
-     * @return string
+     * @return object
      * @description Close the form
      */
-    public function endForm(): string
+    public function endForm():object
     {
-        return  "</form>";
+        echo "</form>";
+        return $this;
     }
 
     /**
@@ -44,7 +45,7 @@ class Form
     {
         echo "<div class='form-group'>
         <label for='$id'>$name</label>
-        <input type='file' class='form-control-file' id='$id' name='$name' required>
+        <input type='file' class='form-control-file' id='$id' name='$name'>
         </div>";
 
         return $this;
@@ -64,7 +65,7 @@ class Form
     {
         echo "<div class='form-group'>
                 <label for='$id'>$name</label>
-                <input type=$type class='form-control' name='$name' id='$id' placeholder='$placeholder' value='$value' required>
+                <input type=$type class='form-control' name='$name' id='$id' placeholder='$placeholder' value='$value'>
               </div>";
         return $this;
     }
@@ -96,16 +97,15 @@ class Form
      * @return object
      * @description Returns a drop down
      */
-    public function myDropDown(string $name, string $id, string $value=null, ...$options): object
+    public function myDropDown(string $name, string $id, ?string $value=null, ...$options): object
     {
         echo "<div class='form-group'>
                 <label for='$id'>$name</label>
-                <select class='form-control' id='$id' name='$name'>
-                <option selected>$value</option>";
+                <select class='form-control' id='$id' name='$name' value=$value>";
 
-        foreach ($options[0] as $option) {
-            echo "<option value='$option[1]'>";
-            echo ucfirst($option[1]);
+        foreach ((array)$options as $option) {
+            echo "<option value='$option'>";
+            echo ucfirst($option);
             echo "</option>";
         }
 

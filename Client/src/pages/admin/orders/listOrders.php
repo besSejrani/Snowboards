@@ -9,17 +9,22 @@ $title = "Snowboards | Products";
 
 <div class="d-flex align-items-center vh-100">
     <div class="justify-content-start  h-100">
-        <?php require dirname(__DIR__,2) . "/layout/sidebar.php"?>
+        <?php require dirname(__DIR__,3) . "/layout/sidebar.php"?>
     </div>
 
     <div class="d-flex flex-column justify-content-center align-items-center h-100 w-100">
 
-        <div style="width: 800px;">
+        <div style="width: 900px;">
             <div class="d-flex flex-row justify-content-between">
-                <h1>Products</h1>
-                <div class="d-flex justify-content-end align-items-center w-20">
+                <h1>Orders</h1>
+                <div class="d-flex justify-content-end align-items-center w-35">
                     <a class="mx-3" href="/addProduct">
-                        <button type="button" style="width:100px;" class="btn btn-primary">Add Snow</button>
+                        <button type="button" style="width:130px;" class="btn btn-primary">
+                            <span class="material-icons">
+                                add
+                            </span>
+                            Add Order
+                        </button>
                     </a>
                     <select class="custom-select" id="inputGroupSelect01">
 
@@ -27,7 +32,7 @@ $title = "Snowboards | Products";
                     $categories = CategoryRepository::GetCategories();
 
                     echo <<< EOT
-                        <option selected>All</option>
+                        <option selected>Category</option>
                     EOT;
 
                     foreach ($categories as $category) {
@@ -50,7 +55,7 @@ $snows = $db->getProducts();
 
 
 echo <<<EOT
-    <table class="table table-dark container mb-5">
+    <table class="table table-dark container mb-5 table-hover">
     <thead>
     <tr>
     <th>ID</th>
@@ -77,8 +82,17 @@ foreach ($snows as $snow) {
         <td>$snow[sku]</td>
         <td>$snow[price]</td>
         <td>
-            <a href=/api/products/deleteProduct/$snow[id]>Détruire</a>
-            <a href=/api/products/update/$snow[id]>Modifier</a>
+            <a href=/api/products/update/$snow[id]>
+                <span class="material-icons text-warning">
+                    create
+                </span></a>
+            </a>
+
+            <a href=/api/products/deleteProduct/$snow[id]>
+                <span class="material-icons text-danger">
+                    delete
+                </span>
+            </a>
         </td>
         </tr>
     EOT;

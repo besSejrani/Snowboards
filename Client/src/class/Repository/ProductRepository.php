@@ -36,7 +36,6 @@ class ProductRepository
 
     public function deleteProduct(string $id)
     {
-
         $sql = "DELETE FROM snows_bes.product WHERE id='$id'";
         $db = new Mysql();
         $db->executeQuery($sql);
