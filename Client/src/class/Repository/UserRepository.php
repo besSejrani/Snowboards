@@ -48,7 +48,7 @@ class UserRepository
         return $db->executeQuery($sql);
     }
 
-    public function getUserProfile():iterable{
+    public function GetUserProfile():iterable{
         $sql="SELECT profile from snows_bes.user where id='1'";
         $db = new Mysql();
         return $db->executeQuery($sql);

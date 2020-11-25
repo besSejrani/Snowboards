@@ -14,10 +14,11 @@ $firstname = $user[0]['firstname'];
 $lastname = $user[0]['lastname'];
 $email = $user[0]['email'];
 
-
-$profileImage = new UserRepository();
-$profile = $profileImage->getUserProfile();
+// Profile
+$test = new UserRepository();
+$profile = $test->GetUserProfile();
 $image = $profile[0]['profile'];
+$profileImage = "<img src='$image' alt='user profile'>";
 
 ?>
 <div class="container">
@@ -40,7 +41,12 @@ $image = $profile[0]['profile'];
     <div class="d-flex justify-content-center align-items-center vh-100">
         <div class="f-flex flex-row">
 
-            <?php echo "<img src='$image' alt='user profile'"  ?>
+            <?php if(!$image) :?>
+            <?= "<span class='material-icons text-dark'>people</span>" ?>
+            <?php else : ?>
+            <?=  $profileImage ?>
+            <?php endif; ?>
+
             <div class="w-50" id="list-item-1">
                 <?php
                     $form = new Form();

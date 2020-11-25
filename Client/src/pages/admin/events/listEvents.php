@@ -17,7 +17,7 @@ $title = "Admin | Events";
             <div class="d-flex flex-row justify-content-between">
                 <h1>Events</h1>
                 <div class="d-flex justify-content-end align-items-center w-35">
-                    <a class="mx-3" href="/admin/events/insertEvent">
+                    <a class="mx-3" href="/admin/events/addEvent">
                         <button type="button" style="width:130px;" class="btn btn-primary">
                             <span class="material-icons">
                                 add
@@ -40,13 +40,11 @@ echo <<<EOT
     <table class="table table-dark container mb-5 table-hover">
     <thead>
     <tr>
-    <th>ID</th>
     <th>Name</th>
-    <th>Description</th>
-    <th>Brand</th>
-    <th>SKU</th>
-    <th>Price</th>
-    <th>Actions</th>
+    <th>Address</th>
+    <th>Participants</th>
+    <th>Start Date</th>
+    <th>End Date</th>
     </tr>
     </thead>
     <tbody>
@@ -57,7 +55,6 @@ EOT;
 foreach ($snows as $snow) {
     echo <<<EOT
         <tr>
-        <td>$snow[id]</td>
         <td>$snow[name]</td>
         <td>$snow[description]</td>
         <td>$snow[brand]</td>

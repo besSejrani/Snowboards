@@ -6,6 +6,7 @@ $user = new UserRepository();
 $profile = $user->getUserProfile();
 $image = $profile[0]['profile'];
 
+$profileImage = "<img src='$image' alt='user profile' id='userProfile'>";
 ?>
 
 <!DOCTYPE html>
@@ -53,7 +54,11 @@ $image = $profile[0]['profile'];
                 <a class="nav-link nav-item" href="/api/users/signout">Signout</a>
 
                 <a class="nav-link nav-item" href="/admin/users">
-                    <?php echo "<img src='$image' alt='user profile' id='userProfile'>"  ?>
+                    <?php if(!$image) :?>
+                    <?= "<span class='material-icons text-dark'>people</span>" ?>
+                    <?php else : ?>
+                    <?=  $profileImage ?>
+                    <?php endif; ?>
                 </a>
                 <?php endif; ?>
 

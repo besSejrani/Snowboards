@@ -15,7 +15,7 @@ class UserController{
 
     public static function AddUser()
     {
-        // Get POST values
+        // POST values
         $firstname = $_POST['First_Name'];
         $lastname = $_POST['Last_Name'];
         $username = $_POST['Username'];
@@ -34,7 +34,7 @@ class UserController{
 
     public static function GetUserId()
     {
-        // Get URI parameter
+        // URI parameter
         $uri = $_SERVER['REQUEST_URI'];
         $id = explode('/', $uri)[4];
         
@@ -139,7 +139,7 @@ class UserController{
 
     public static function DeleteUser()
     {
-        // Get URI parameter
+        // URI parameter
         $uri = $_SERVER['REQUEST_URI'];
         $id = explode('/', $uri)[4];
         

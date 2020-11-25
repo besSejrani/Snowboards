@@ -3,6 +3,7 @@
 require (dirname(__DIR__) . "/vendor/autoload.php");
 
 use App\Controller\AuthController;
+use App\Controller\EventController;
 use App\Routes\Router;
 use App\Controller\ProductController;
 use App\Controller\UserController;
@@ -48,7 +49,8 @@ $router->get("/", "public/home.php")
         // Events
         ->get("/events", "public/events.php")
         ->get("/admin/events", "admin/events/listEvents.php")
-        ->get("/admin/events/insertEvent", "admin/events/insertEvent.php")
+        ->get("/admin/events/addEvent", "admin/events/addEvent.php")
+        ->post("/api/events/add",function(){ EventController::AddEvent();})
 
         
         // Users

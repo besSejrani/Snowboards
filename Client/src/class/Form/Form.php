@@ -70,6 +70,15 @@ class Form
         return $this;
     }
 
+    public function myDate(string $type, string $name, string $id): object
+    {
+        echo "<div class='form-group'>
+                <label for='$id'>$name</label>
+                <input type=$type class='form-control' id='$id' name='$name'></input>
+              </div>";
+        return $this;
+    }
+
     /**
      * @name myTextArea
      *

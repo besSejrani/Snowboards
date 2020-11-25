@@ -12,7 +12,7 @@ class ProductController{
 
     public static function AddProduct()
     {
-        // Get POST values
+        // POST values
         $name = $_POST['Name'];
         $description = $_POST['Description'];
         $price = $_POST['Price'];
@@ -30,7 +30,7 @@ class ProductController{
 
     public static function GetProductId()
     {
-        // Get URI parameter
+        // URI parameter
         $uri = $_SERVER['REQUEST_URI'];
         $product = explode('/', $uri)[4];
         
@@ -44,14 +44,14 @@ class ProductController{
 
     public static function UpdateProduct()
     {
-        // Get POST values
+        // POST values
         $name = $_POST['Name'];
         $description = $_POST['Description'];
         $price = $_POST['Price'];
         $sku = $_POST['SKU'];
         $brand = $_POST['Brand'];
 
-        // Get URI parameter
+        // URI parameter
         $uri = $_SERVER['REQUEST_URI'];
         $id = explode('/', $uri)[4];
         
@@ -66,7 +66,7 @@ class ProductController{
 
     public static function DeleteProduct()
     {
-        // Get URI parameter
+        // URI parameter
         $uri = $_SERVER['REQUEST_URI'];
         $id = explode('/', $uri)[4];
         
