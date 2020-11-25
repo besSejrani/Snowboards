@@ -2,6 +2,11 @@
 
 $title = "Admin | Insert Event";
 use App\Form\Form;
+use App\Repository\UserRepository;
+
+$user = new UserRepository();
+$user->get
+
 ?>
 
 <div class="d-flex ">
