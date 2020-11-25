@@ -14,19 +14,33 @@ $firstname = $user[0]['firstname'];
 $lastname = $user[0]['lastname'];
 $email = $user[0]['email'];
 
+
+$profileImage = new UserRepository();
+$profile = $profileImage->getUserProfile();
+$image = $profile[0]['profile'];
+
 ?>
+<div class="container">
+</div>
 
 
-<div class="d-flex flex-row">
+<div class="d-flex">
     <div id="list-example" class="list-group position-fixed">
         <a class="list-group-item list-group-item-action" href="#list-item-1">Update User Information</a>
-        <a class="list-group-item list-group-item-action" href="#list-item-2">Change User Role</a>
-        <a class="list-group-item list-group-item-action" href="#list-item-3">Reset Password</a>
+        <a class="list-group-item list-group-item-action" href="#list-item-2">Update User Profile</a>
+        <a class="list-group-item list-group-item-action" href="#list-item-3">Change User Role</a>
+        <a class="list-group-item list-group-item-action" href="#list-item-4">Reset Password</a>
     </div>
+</div>
 
 
-    <div class="d-flex flex-column w-100" data-spy="scroll" data-target="#list-example" data-offset="0">
-        <div class="d-flex justify-content-center align-items-center vh-100">
+
+<div class="d-flex flex-column w-100" data-spy="scroll" data-target="#list-example" data-offset="0">
+
+    <div class="d-flex justify-content-center align-items-center vh-100">
+        <div class="f-flex flex-row">
+
+            <?php echo "<img src='$image' alt='user profile'"  ?>
             <div class="w-50" id="list-item-1">
                 <?php
                     $form = new Form();
@@ -37,25 +51,38 @@ $email = $user[0]['email'];
                     ->myInput("email", "Email", "email", null, $email)
                     ->mySubmit("myButton")
                     ->endForm();
-                ?>
+                    ?>
             </div>
         </div>
+    </div>
 
-        <div class="d-flex justify-content-center align-items-center vh-100">
-            <div class="w-50" id="list-item-2">
-                <?php
+    <div class="d-flex justify-content-center align-items-center vh-100">
+        <div class="w-50" id="list-item-2">
+            <?php
+                    $form = new Form();
+                    $form->startForm("/api/users/update/profile/$id", "POST", "multipart/form-data")
+                    ->myFile('ProfileImageUser', 'profile')
+                    ->mySubmit("myButton")
+                    ->endForm();
+                ?>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center vh-100">
+        <div class="w-50" id="list-item-3">
+            <?php
                     $form3 = new Form();
                     $form3->startForm("/api/users/update/role/$id", "POST")
                     ->myDropDown("Role", "role", null, "user", "admin")
                     ->mySubmit("myButton")
                     ->endForm();
                 ?>
-            </div>
         </div>
+    </div>
 
-        <div class="d-flex justify-content-center align-items-center vh-100">
-            <div class="w-50" id="list-item-3">
-                <?php
+    <div class="d-flex justify-content-center align-items-center vh-100">
+        <div class="w-50" id="list-item-4">
+            <?php
                     $form2 = new Form();
                     $form2->startForm("/api/users/update/password/$id", "POST")
                     ->myInput("password", "Password", "password", null)
@@ -63,7 +90,6 @@ $email = $user[0]['email'];
                     ->mySubmit("myButton")
                     ->endForm();
                 ?>
-            </div>
         </div>
     </div>
 </div>

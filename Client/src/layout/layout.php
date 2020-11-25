@@ -1,3 +1,13 @@
+<?php
+
+use App\Repository\UserRepository;
+
+$user = new UserRepository();
+$profile = $user->getUserProfile();
+$image = $profile[0]['profile'];
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,9 +47,14 @@
                 <a class="nav-link nav-item" href="/signin">Signin</a>
                 <?php else : ?>
                 <a class="nav-link nav-item" href="/admin/administration">Administration</a>
-                <a class="nav-link nav-item" href="grafana:3500" target="_blank">Dashboard <span
+                <a class="nav-link nav-item" href="http://localhost:3500" target="_blank">Dashboard <span
                         class="sr-only"></span></a>
+
                 <a class="nav-link nav-item" href="/api/users/signout">Signout</a>
+
+                <a class="nav-link nav-item" href="/admin/users">
+                    <?php echo "<img src='$image' alt='user profile' id='userProfile'>"  ?>
+                </a>
                 <?php endif; ?>
 
                 <a class="nav-link nav-item" href="/cart">

@@ -5,6 +5,8 @@ require dirname(__DIR__,3) . "/vendor/autoload.php";
 
 use App\Repository\UserRepository;
 use App\Error\RequestValidationError;
+use App\Form\Upload;
+use Cloudinary\Uploader;
 use Error;
 
 class UserController{
@@ -44,7 +46,7 @@ class UserController{
         }
     }
 
-    public static function UpdateUser()
+    public static function UpdateUserInformation()
     {
         // POST values
         $email = $_POST['Email'];
@@ -52,13 +54,39 @@ class UserController{
         $firstname = $_POST['Firstname'];
         $lastname = $_POST['Lastname'];
 
+       
+
         // URI parameter
         $uri = $_SERVER['REQUEST_URI'];
         $id = explode('/', $uri)[5];
 
-        try{            
+        try{
+
             $user = new UserRepository();
-            $user->UpdateUser($email,$username,$firstname,$lastname, $id);
+            $user->UpdateUser($email,$username,$firstname,$lastname,$id);
+            header(UserController::$headerLocation);
+        }catch(Error $e){
+            echo $e->getMessage();
+        }
+    }
+
+    public static function UpdateUserProfile()
+    {
+        // POST values
+        $profile = $_FILES['ProfileImageUser']['tmp_name'];
+
+        // URI parameter
+        $uri = $_SERVER['REQUEST_URI'];
+        $id = explode('/', $uri)[5];
+
+        try{
+            $upload = new Upload();
+            $upload->config();
+            $image = $upload->ProfileImage($profile);
+            $profileImage = $image['secure_url'];
+
+            $user = new UserRepository();
+            $user->UpdateUserProfile($profileImage, $id);
             header(UserController::$headerLocation);
         }catch(Error $e){
             echo $e->getMessage();

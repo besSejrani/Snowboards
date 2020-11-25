@@ -58,7 +58,8 @@ $router->get("/", "public/home.php")
         ->post("/api/users/add",function(){ UserController::AddUser();})
 
         ->get("/api/users/update/[a:action]", "admin/users/updateUser.php")
-        ->post("/api/users/update/user/[a:action]",function(){ UserController::UpdateUser();})
+        ->post("/api/users/update/user/[a:action]",function(){ UserController::UpdateUserInformation();})
+        ->post("/api/users/update/profile/[a:action]",function(){ UserController::UpdateUserProfile();})
         ->post("/api/users/update/role/[a:action]", function(){UserController::UpdateUserRole();})
         ->post("/api/users/update/password/[a:action]", function(){UserController::UpdateUserPassword();})
         

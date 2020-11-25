@@ -47,6 +47,12 @@ class UserRepository
         $db = new Mysql();
         return $db->executeQuery($sql);
     }
+
+    public function getUserProfile():iterable{
+        $sql="SELECT profile from snows_bes.user where id='1'";
+        $db = new Mysql();
+        return $db->executeQuery($sql);
+    }
     
     /**
      * DeleteUserById
@@ -73,6 +79,12 @@ class UserRepository
      */
     public function UpdateUser($email,$username,$firstname,$lastname, $id){
         $sql = "UPDATE snows_bes.user SET email='$email', username='$username', firstname='$firstname', lastname='$lastname' WHERE id='$id'";
+        $db = new Mysql();
+        $db->executeQuery($sql);
+    }
+
+    public function UpdateUserProfile($profileImage, $id){
+        $sql = "UPDATE snows_bes.user SET profile='$profileImage' WHERE id='$id'";
         $db = new Mysql();
         $db->executeQuery($sql);
     }

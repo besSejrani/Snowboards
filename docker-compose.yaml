@@ -35,6 +35,9 @@ services:
       - MYSQL_DATABASE=snows_bes
       - MYSQL_PORT=3307
 
+    env_file:
+      - .env.container
+
     volumes:
       - ./Client:/var/www/html:delegated
 
