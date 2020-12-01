@@ -39,7 +39,7 @@ class UserRepository
      * @return iterable
      */
     public function GetAllUsers():iterable{
-        $sql="SELECT users.id as id, users.username as username, users.firstname as firstname, users.lastname as lastname, users.email as email, roles.name as role
+        $sql="SELECT users.id as id, users.username as username, users.firstname as firstname, users.lastname as lastname, users.email as email, users.profile as profile, roles.name as role
         FROM snows_bes.user as users
         LEFT JOIN snows_bes.role as roles
         on roles.id_users = users.id";
@@ -48,8 +48,8 @@ class UserRepository
         return $db->executeQuery($sql);
     }
 
-    public function GetUserProfile():iterable{
-        $sql="SELECT profile from snows_bes.user where id='1'";
+    public function GetUserProfileById($id):iterable{
+        $sql="SELECT profile from snows_bes.user where id='$id'";
         $db = new Mysql();
         return $db->executeQuery($sql);
     }

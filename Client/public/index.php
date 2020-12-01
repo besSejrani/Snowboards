@@ -6,6 +6,7 @@ use App\Controller\AuthController;
 use App\Controller\EventController;
 use App\Routes\Router;
 use App\Controller\ProductController;
+use App\Controller\SeoController;
 use App\Controller\UserController;
 
 session_start();
@@ -45,12 +46,19 @@ $router->get("/", "public/home.php")
         //Administration
         ->get("/admin/administration", "admin/admin.php")
         
+        // Events
+        ->get("/admin/seo", "admin/SEO/listSeo.php")
+        ->get("/admin/seo/addSeo", "admin/SEO/addSeo.php")
+
+        ->post("/api/seo/add",function(){ SeoController::AddSeo();})
         
         // Events
         ->get("/events", "public/events.php")
         ->get("/admin/events", "admin/events/listEvents.php")
         ->get("/admin/events/addEvent", "admin/events/addEvent.php")
         ->post("/api/events/add",function(){ EventController::AddEvent();})
+
+        ->get("/api/events/delete/[a:action]",function(){ EventController::DeleteEvent();})
 
         
         // Users

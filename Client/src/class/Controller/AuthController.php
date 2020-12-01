@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Controller; 
-require dirname(__DIR__,3) . "/vendor/autoload.php";
 
 use App\Repository\UserRepository;
 use App\Error\RequestValidationError;
@@ -57,8 +56,9 @@ class AuthController {
 
             $verify =  password_verify($password, $user[0]['password']);
 
+
             if ($verify) {
-                $_SESSION['role'] = "admin";
+                $_SESSION['auth'] = array('id' => $user[0]['id'], 'email'=> $user[0]['email']);
                 header("location: http://localhost:8000/");
             } else {
                 header("Location: http://localhost:8000/signin");

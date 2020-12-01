@@ -6,8 +6,8 @@ services:
       context: ./Nginx
     depends_on:
       - php-fpm
-      - mysql
     networks:
+      - frontend
       - backend
     ports:
       - "8000:80"
@@ -19,7 +19,10 @@ services:
 
   php-fpm:
     build:
-      context: ./Php-Fpm
+      context: ./Client
+      args:
+        user: bes
+        uid: 1000
     depends_on:
       - mysql
       - redis
@@ -69,10 +72,10 @@ services:
 
   redis:
     image: redis:latest
-    ports:
-      - "6369:6379"
     networks:
       - backend
+    ports:
+      - "6369:6379"
     command: redis-server
 
     # ==============================================================================================================================
@@ -82,6 +85,8 @@ services:
     hostname: grafana
     ports:
       - "3500:3000"
+    networks:
+      - frontend
     user: root
     environment:
       - TEST=bal

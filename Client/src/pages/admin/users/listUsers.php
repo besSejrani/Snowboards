@@ -1,8 +1,9 @@
 <?php
 
-
+// Users
 use App\Repository\UserRepository;
-
+$users = new UserRepository();
+$userInformation = $users->GetAllUsers();
 $title = "Snowboards | Products";
 ?>
 
@@ -33,14 +34,11 @@ $title = "Snowboards | Products";
 
             <?php
 
-$db = new UserRepository();
-$users = $db->GetAllUsers();
-
-
 echo <<<EOT
     <table class="table table-dark container mb-5 table-hover">
     <thead>
     <tr>
+    <th>Photo</th>
     <th>Username</th>
     <th>Firstname</th>
     <th>Lastname</th>
@@ -53,54 +51,54 @@ echo <<<EOT
 EOT;
 
 
-
-foreach ($users as $user) {
+foreach ($userInformation as $user) {
+    $image = $user['profile'];
+    $profileImage = "<img src='$image' alt='user profile' id='userProfile'>";
+    
     echo <<<EOT
-        <tr>
-        <td>$user[username]</td>
-        <td>$user[firstname]</td>
-        <td>$user[lastname]</td>
-        <td>$user[email]</td>
-        <td>$user[role]</td>
-        <td>
-            <a href=/api/users/update/$user[id]>
-                <span class="material-icons text-warning">
-                    create
-                </span></a>
-            </a>
-
-            <a href=/api/users/delete/$user[id]>
-                <span class="material-icons text-danger">
-                    delete
-                </span>
-            </a>
-        </td>
-        </tr>
+                <tr>
+                <td>
     EOT;
-}
-
-    echo <<<EOT
-        </tbody>
-        </table>   
-    EOT;
-
 ?>
+            <?php if($image) :?>
+            <?php echo $profileImage ?>
+            <?php else : ?>
+            <img src='/assets/unknown.png' alt='user profile' id='userProfile'>
+            <?php endif ; ?>
 
-            <div class="d-flex align-items-center justify-content-center mt-5">
-                <ul class="pagination">
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item active" aria-current="page">
-                        <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">Next</a>
-                    </li>
-                </ul>
-            </div>
+            <?php        
+        echo <<<EOT
+                        </td>
+                        <td>$user[username]</td>
+                        <td>$user[firstname]</td>
+                        <td>$user[lastname]</td>
+                        <td>$user[email]</td>
+                        <td>$user[role]</td>
+                        <td>
+                            <a href=/api/users/update/$user[id]>
+                                <span class="material-icons text-warning">
+                                    create
+                                </span></a>
+                            </a>
+
+                            <a href=/api/users/delete/$user[id]>
+                                <span class="material-icons text-danger">
+                                    delete
+                                </span>
+                            </a>
+                        </td>
+                        </tr>
+                        
+                EOT;
+            }
+            
+        echo <<<EOT
+                    </tbody>
+                    </table>
+                EOT;
+        ?>
+
+            <?require dirname(__DIR__,3) . "/layout/pagination.php" ?>
         </div>
     </div>
 </div>

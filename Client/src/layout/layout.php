@@ -1,9 +1,10 @@
 <?php
 
+// User
 use App\Repository\UserRepository;
-
 $user = new UserRepository();
-$profile = $user->getUserProfile();
+$id = $_SESSION['auth']['id'];
+$profile = $user->GetUserProfileById($id);
 $image = $profile[0]['profile'];
 
 $profileImage = "<img src='$image' alt='user profile' id='userProfile'>";
@@ -17,9 +18,7 @@ $profileImage = "<img src='$image' alt='user profile' id='userProfile'>";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-        crossorigin="" />
+
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="/scss/index.css">
     <title><?= $title ?? "Snowboard" ?></title>
@@ -28,15 +27,14 @@ $profileImage = "<img src='$image' alt='user profile' id='userProfile'>";
 <div id="navContainer">
     <nav class="navbar bg-white fixed-top d-flex justify-content-between" id="nav">
         <a href="/" class="navbar-brand"><img src="/assets/logo.svg" alt=""></a>
-        <div class="d-flex justify-content-between ">
-
-            <!-- <form class="form-inline mr-5"> -->
-            <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> -->
-            <!-- <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button> -->
-            <!-- </form> -->
+        <div class="d-flex justify-content-between">
 
             <a class="nav-link nav-item" href="/cart">
                 <span class="material-icons text-dark">search</span>
+            </a>
+
+            <a class="nav-link nav-item" href="/cart">
+                <span class="material-icons text-dark">shopping_cart</span>
             </a>
 
             <div class="d-flex flex-row">
@@ -44,7 +42,7 @@ $profileImage = "<img src='$image' alt='user profile' id='userProfile'>";
                 <a class="nav-link nav-item" href="/events">Events</a>
                 <a class="nav-link nav-item" href="/contact">Contact</a>
 
-                <?php if (!isset($_SESSION['role'])) : ?>
+                <?php if (!isset($_SESSION['auth'])) : ?>
                 <a class="nav-link nav-item" href="/signin">Signin</a>
                 <?php else : ?>
                 <a class="nav-link nav-item" href="/admin/administration">Administration</a>
@@ -55,16 +53,12 @@ $profileImage = "<img src='$image' alt='user profile' id='userProfile'>";
 
                 <a class="nav-link nav-item" href="/admin/users">
                     <?php if(!$image) :?>
-                    <?= "<span class='material-icons text-dark'>people</span>" ?>
+                    <img src='/assets/unknown.png' alt='user profile' id='userProfile'>
                     <?php else : ?>
                     <?=  $profileImage ?>
                     <?php endif; ?>
                 </a>
                 <?php endif; ?>
-
-                <a class="nav-link nav-item" href="/cart">
-                    <span class="material-icons text-dark">shopping_cart</span>
-                </a>
 
             </div>
         </div>
@@ -75,13 +69,16 @@ $profileImage = "<img src='$image' alt='user profile' id='userProfile'>";
 
 
     <?= $content ?>
-    <?php if (!isset($_SESSION['role'])) : ?>
+    <?php if (!isset($_SESSION['auth'])) : ?>
     <footer style="height: 200px;">
         <div class="bg-primary h-100"></div>
     </footer>
     <?php endif; ?>
+
+
     <?= $js ?>
     <script src="/js/utils/scrollShowUp.js"></script>
+    <script src="/js/utils/toggleSidebar.js"></script>
 </body>
 
 </html>

@@ -1,12 +1,10 @@
 <?php 
 
 namespace App\Controller; 
-require dirname(__DIR__,3) . "/vendor/autoload.php";
 
 use App\Repository\UserRepository;
 use App\Error\RequestValidationError;
 use App\Form\Upload;
-use Cloudinary\Uploader;
 use Error;
 
 class UserController{

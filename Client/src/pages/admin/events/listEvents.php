@@ -1,6 +1,8 @@
 <?php
 
-use App\Repository\ProductRepository;
+use App\Repository\EventRepository;
+$db = new EventRepository();
+$events = $db->GetEvents();
 
 $title = "Admin | Events";
 ?>
@@ -32,9 +34,6 @@ $title = "Admin | Events";
 
             <?php
 
-$db = new ProductRepository();
-$snows = $db->getProducts();
-
 
 echo <<<EOT
     <table class="table table-dark container mb-5 table-hover">
@@ -42,9 +41,11 @@ echo <<<EOT
     <tr>
     <th>Name</th>
     <th>Address</th>
+    <th>GPS</th>
     <th>Participants</th>
     <th>Start Date</th>
     <th>End Date</th>
+    <th>Actions</th>
     </tr>
     </thead>
     <tbody>
@@ -52,22 +53,23 @@ EOT;
 
 
 
-foreach ($snows as $snow) {
+foreach ($events as $event) {
     echo <<<EOT
         <tr>
-        <td>$snow[name]</td>
-        <td>$snow[description]</td>
-        <td>$snow[brand]</td>
-        <td>$snow[sku]</td>
-        <td>$snow[price]</td>
+        <td>$event[name]</td>
+        <td>$event[address]</td>
+        <td>$event[gps]</td>
+        <td>$event[participants]</td>
+        <td>$event[start_date]</td>
+        <td>$event[end_date]</td>
         <td>
-            <a href=/api/products/update/$snow[id]>
+            <a href=/api/events/update/$event[id]>
                 <span class="material-icons text-warning">
                     create
                 </span></a>
             </a>
 
-            <a href=/api/products/deleteProduct/$snow[id]>
+            <a href=/api/events/delete/$event[id]>
                 <span class="material-icons text-danger">
                     delete
                 </span>
@@ -84,21 +86,7 @@ foreach ($snows as $snow) {
 
 ?>
 
-            <div class="d-flex align-items-center justify-content-center mt-5">
-                <ul class="pagination">
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item active" aria-current="page">
-                        <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">Next</a>
-                    </li>
-                </ul>
-            </div>
+            <?require dirname(__DIR__,3) . "/layout/pagination.php" ?>
         </div>
     </div>
 </div>

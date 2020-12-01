@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Controller;
-require (dirname(__DIR__, 3) . "/vendor/autoload.php");
 
 use App\Repository\ProductRepository;
 use Error;
