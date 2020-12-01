@@ -39,7 +39,7 @@ services:
       - MYSQL_PORT=3307
 
     env_file:
-      - .env.container
+      - .env
 
     volumes:
       - ./Client:/var/www/html:delegated
@@ -88,8 +88,6 @@ services:
     networks:
       - frontend
     user: root
-    environment:
-      - TEST=bal
     volumes:
       - ~/docker/Snowboards/grafana:/var/lib/grafana
     # ==============================================================================================================================

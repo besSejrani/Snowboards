@@ -2,12 +2,6 @@
 
 namespace App\Model;
 
-require (dirname(__DIR__, 3) . "/vendor/autoload.php");
-$dotenv = \Dotenv\Dotenv::createImmutable("./../");
-$dotenv->load();
-
-
-
 class Mysql
 {
     private static $connection = null;
