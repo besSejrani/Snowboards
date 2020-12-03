@@ -1,10 +1,16 @@
 <?php
 
-// Users
+use App\Form\Seo;
 use App\Repository\SeoRepository;
+
+//SEO
+$seo = new Seo();
+$seo->myTitle("Snowboards | SEO")
+    ->myDescription("This is a description");
+
+// Users
 $users = new SeoRepository();
 $pages = $users->GetSeos();
-$title = "Snowboards | Products";
 ?>
 
 
@@ -59,7 +65,6 @@ foreach ($pages as $page) {
                             create
                         </span></a>
                     </a>
-
                     <a href=/api/seo/delete/$page[id]>
                         <span class="material-icons text-danger">
                             delete

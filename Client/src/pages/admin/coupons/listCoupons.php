@@ -1,9 +1,13 @@
 <?php
 
+use App\Form\Seo;
 use App\Repository\CategoryRepository;
 use App\Repository\ProductRepository;
 
-$title = "Snowboards | Products";
+// SEO
+$seo = new Seo();
+$seo->myTitle("Snowboards | Coupons")
+    ->myDescription("This is a description");
 ?>
 
 
@@ -87,7 +91,6 @@ foreach ($snows as $snow) {
                     create
                 </span></a>
             </a>
-
             <a href=/api/products/deleteProduct/$snow[id]>
                 <span class="material-icons text-danger">
                     delete

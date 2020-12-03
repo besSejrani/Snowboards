@@ -1,10 +1,16 @@
 <?php
 
+use App\Form\Seo;
 use App\Repository\EventRepository;
+
+// SEO
+$seo = new Seo();
+$seo->myTitle("Snowboards | Events")
+    ->myDescription("This is a description");
+
+// Events
 $db = new EventRepository();
 $events = $db->GetEvents();
-
-$title = "Admin | Events";
 ?>
 
 
@@ -68,7 +74,6 @@ foreach ($events as $event) {
                     create
                 </span></a>
             </a>
-
             <a href=/api/events/delete/$event[id]>
                 <span class="material-icons text-danger">
                     delete

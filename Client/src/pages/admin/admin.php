@@ -1,5 +1,10 @@
 <?php
-$title = "Snowboards | Admin";
+use App\Form\Seo;
+
+//SEO
+$seo = new Seo();
+$seo->myTitle("Snowboards | Admin")
+    ->myDescription("This is a description")
 ?>
 
 <div class="vh-100 d-flex justify-content-center align-items-center">

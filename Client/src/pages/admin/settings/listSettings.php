@@ -1,9 +1,12 @@
 <?php
 
+use App\Form\Seo;
 use App\Repository\CategoryRepository;
 use App\Repository\ProductRepository;
 
-$title = "Snowboards | Products";
+$seo = new Seo();
+$seo->myTitle("Snowboards | Settings")
+    ->myDescription("This is a description");
 ?>
 
 

@@ -18,7 +18,7 @@ const openSidebar = () => {
 const closeSidebar = () => {
   list.forEach((element) => {
     element.style.display = "none";
-    sidebarButton.style.marginTop = "115px";
+    sidebarButton.style.marginTop = "110px";
     sidebar.style.width = "75px";
     logo.style.display = "none";
   });

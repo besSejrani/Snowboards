@@ -1,9 +1,17 @@
 <?php
 
+use App\Form\Seo;
 use App\Repository\CategoryRepository;
 use App\Repository\ProductRepository;
 
-$title = "Snowboards | Products";
+// SEO
+$seo = new Seo();
+$meta = $seo->myTitle("Snowboards | Inventory")
+                ->myDescription("This is a description");
+
+// Users
+$db = new ProductRepository();
+$snows = $db->getProducts();
 ?>
 
 
@@ -50,10 +58,6 @@ $title = "Snowboards | Products";
 
             <?php
 
-$db = new ProductRepository();
-$snows = $db->getProducts();
-
-
 echo <<<EOT
     <table class="table table-dark container mb-5 table-hover">
     <thead>
@@ -87,7 +91,6 @@ foreach ($snows as $snow) {
                     create
                 </span></a>
             </a>
-
             <a href=/api/products/deleteProduct/$snow[id]>
                 <span class="material-icons text-danger">
                     delete

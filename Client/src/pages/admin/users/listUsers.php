@@ -1,10 +1,17 @@
 <?php
 
-// Users
+use App\Form\Seo;
 use App\Repository\UserRepository;
+
+// SEO
+$seo = new Seo();
+$seo->myTitle("Snowboards | Users")
+    ->myDescription("This is a description");
+
+// Users
 $users = new UserRepository();
 $userInformation = $users->GetAllUsers();
-$title = "Snowboards | Products";
+
 ?>
 
 
@@ -80,7 +87,6 @@ foreach ($userInformation as $user) {
                                     create
                                 </span></a>
                             </a>
-
                             <a href=/api/users/delete/$user[id]>
                                 <span class="material-icons text-danger">
                                     delete
